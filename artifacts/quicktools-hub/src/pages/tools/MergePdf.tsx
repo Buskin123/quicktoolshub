@@ -9,6 +9,7 @@ const tool = tools.find((t) => t.id === "merge-pdf")!;
 export default function MergePdf() {
   const [files, setFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   function handleFiles(list: FileList | null) {
@@ -19,11 +20,24 @@ export default function MergePdf() {
   async function mergePdfs() {
     if (files.length < 2) return;
     setLoading(true);
+    setError(null);
     try {
       const merged = await PDFDocument.create();
       for (const file of files) {
         const bytes = await file.arrayBuffer();
-        const doc = await PDFDocument.load(bytes);
+        let doc;
+        try {
+          doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+        } catch {
+          setError(`"${file.name}" is password-protected or encrypted. Please upload an unlocked PDF.`);
+          setLoading(false);
+          return;
+        }
+        if (doc.isEncrypted) {
+          setError(`"${file.name}" is password-protected or encrypted. Please upload an unlocked PDF.`);
+          setLoading(false);
+          return;
+        }
         const pages = await merged.copyPages(doc, doc.getPageIndices());
         pages.forEach((p) => merged.addPage(p));
       }
@@ -35,6 +49,8 @@ export default function MergePdf() {
       a.download = "merged.pdf";
       a.click();
       URL.revokeObjectURL(url);
+    } catch {
+      setError("Something went wrong while merging. Please check your files and try again.");
     } finally {
       setLoading(false);
     }
@@ -66,6 +82,13 @@ export default function MergePdf() {
         </button>
         <input ref={fileRef} type="file" accept="application/pdf" multiple className="hidden" onChange={(e) => handleFiles(e.target.files)} />
       </div>
+
+      {error && (
+        <div data-testid="merge-error" className="mb-4 flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700">
+          <span className="flex-shrink-0 mt-0.5">⚠️</span>
+          <span>{error}</span>
+        </div>
+      )}
 
       {files.length > 0 && (
         <>
