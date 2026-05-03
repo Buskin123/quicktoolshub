@@ -10,9 +10,9 @@ interface LayoutProps {
 
 export function Layout({ children, showSidebar = false }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-950 transition-colors">
       <Navbar />
-      <div className="bg-gray-50 py-2 px-4">
+      <div className="bg-gray-50 dark:bg-gray-900 py-2 px-4 transition-colors">
         <div className="max-w-7xl mx-auto">
           <AdBanner size="leaderboard" className="max-w-full hidden md:flex" />
           <AdBanner size="mobile" className="md:hidden" />
@@ -35,7 +35,7 @@ export function Layout({ children, showSidebar = false }: LayoutProps) {
           children
         )}
       </main>
-      <div className="bg-gray-50 py-4 px-4">
+      <div className="bg-gray-50 dark:bg-gray-900 py-4 px-4 transition-colors">
         <div className="max-w-7xl mx-auto">
           <AdBanner size="leaderboard" className="max-w-full hidden md:flex" />
         </div>

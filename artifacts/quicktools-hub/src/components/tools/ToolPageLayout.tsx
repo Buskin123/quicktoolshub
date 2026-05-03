@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { Link } from "wouter";
-import { ChevronRight, Home } from "lucide-react";
+import { ChevronRight, Home, ChevronDown, ChevronUp } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { AdBanner } from "@/components/layout/AdBanner";
@@ -12,6 +12,36 @@ interface ToolPageLayoutProps {
   children: ReactNode;
   seoDescription?: string;
   howToSteps?: string[];
+}
+
+const toolFaqs = [
+  { q: "Is this tool free to use?", a: "Yes, completely free. All tools on QuickToolsHub are 100% free with no hidden charges, no subscriptions, and no credit card required." },
+  { q: "Is my data safe and private?", a: "Absolutely. All processing happens directly in your browser — no files are ever uploaded to our servers. Your documents and data stay entirely on your device." },
+  { q: "Do I need to sign up or create an account?", a: "No registration is required. Just open the tool and start using it immediately — no login, no account, no forms." },
+  { q: "Does it work on mobile and tablet?", a: "Yes. QuickToolsHub is fully mobile-responsive and works on all modern smartphones, tablets, and desktop browsers." },
+  { q: "What file formats are supported?", a: "PDF tools support PDF files. Image tools support JPG and PNG formats. Calculators work with standard numeric inputs. Check each tool's description for specifics." },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+      <button
+        className="w-full flex items-center justify-between p-4 text-left bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+        onClick={() => setOpen(!open)}
+      >
+        <span className="font-medium text-gray-800 dark:text-gray-100 pr-4 text-sm">{q}</span>
+        {open
+          ? <ChevronUp className="w-4 h-4 text-gray-400 flex-shrink-0" />
+          : <ChevronDown className="w-4 h-4 text-gray-400 flex-shrink-0" />}
+      </button>
+      {open && (
+        <div className="px-4 pb-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-700 pt-3 bg-white dark:bg-gray-800">
+          {a}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export function ToolPageLayout({ tool, children, seoDescription, howToSteps }: ToolPageLayoutProps) {
@@ -28,14 +58,14 @@ export function ToolPageLayout({ tool, children, seoDescription, howToSteps }: T
         <link rel="canonical" href={`https://quicktoolshub.com${tool.path}`} />
       </Helmet>
 
-      <nav className="flex items-center gap-1 text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <nav className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-6" aria-label="Breadcrumb">
         <Link href="/" className="flex items-center gap-1 hover:text-primary transition-colors">
           <Home className="w-3.5 h-3.5" /> Home
         </Link>
         <ChevronRight className="w-3.5 h-3.5" />
         <Link href="/tools" className="hover:text-primary transition-colors">Tools</Link>
         <ChevronRight className="w-3.5 h-3.5" />
-        <span className="text-gray-800 font-medium">{tool.title}</span>
+        <span className="text-gray-800 dark:text-gray-200 font-medium">{tool.title}</span>
       </nav>
 
       <div className="mb-6">
@@ -44,29 +74,29 @@ export function ToolPageLayout({ tool, children, seoDescription, howToSteps }: T
             <tool.icon className="w-5 h-5" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">{tool.title}</h1>
-            <p className="text-sm text-gray-500">{tool.category}</p>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{tool.title}</h1>
+            <p className="text-sm text-gray-500 dark:text-gray-400">{tool.category}</p>
           </div>
         </div>
-        <p className="text-gray-600">{seoDescription || tool.description}</p>
+        <p className="text-gray-600 dark:text-gray-400">{seoDescription || tool.description}</p>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-6 shadow-sm">
+      <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 mb-6 shadow-sm transition-colors">
         {children}
       </div>
 
       <AdBanner size="leaderboard" className="mb-6" />
 
       {howToSteps && howToSteps.length > 0 && (
-        <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 mb-6">
-          <h2 className="text-lg font-semibold text-gray-800 mb-4">How to Use {tool.title}</h2>
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-2xl p-6 mb-6">
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">How to Use {tool.title}</h2>
           <ol className="space-y-3">
             {howToSteps.map((step, i) => (
               <li key={i} className="flex items-start gap-3">
                 <span className="flex-shrink-0 w-7 h-7 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
                   {i + 1}
                 </span>
-                <p className="text-gray-700 text-sm pt-1">{step}</p>
+                <p className="text-gray-700 dark:text-gray-300 text-sm pt-1">{step}</p>
               </li>
             ))}
           </ol>
@@ -75,7 +105,7 @@ export function ToolPageLayout({ tool, children, seoDescription, howToSteps }: T
 
       {relatedTools.length > 0 && (
         <div className="mb-6">
-          <h2 className="text-lg font-semibold text-gray-800 mb-4">Related Tools</h2>
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Related Tools</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {relatedTools.map((t) => (
               <ToolCard key={t.id} tool={t} variant="compact" />
@@ -83,6 +113,16 @@ export function ToolPageLayout({ tool, children, seoDescription, howToSteps }: T
           </div>
         </div>
       )}
+
+      {/* FAQ Section */}
+      <div className="mb-6">
+        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
+        <div className="space-y-2">
+          {toolFaqs.map((faq) => (
+            <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 }

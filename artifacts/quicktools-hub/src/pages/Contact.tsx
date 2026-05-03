@@ -3,6 +3,14 @@ import { Helmet } from "react-helmet-async";
 import { Mail, MessageSquare, Send } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 
+function TelegramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </svg>
+  );
+}
+
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -20,48 +28,67 @@ export default function Contact() {
         <link rel="canonical" href="https://quicktoolshub.com/contact" />
       </Helmet>
 
-      <div className="bg-gradient-to-b from-blue-50 to-white py-14 px-4">
+      <div className="bg-gradient-to-b from-blue-50 dark:from-blue-900/20 to-white dark:to-gray-950 py-14 px-4 transition-colors">
         <div className="max-w-2xl mx-auto text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
-          <p className="text-gray-500">Have a question, suggestion, or found a bug? We'd love to hear from you.</p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Contact Us</h1>
+          <p className="text-gray-500 dark:text-gray-400">Have a question, suggestion, or found a bug? We'd love to hear from you.</p>
         </div>
       </div>
 
       <div className="max-w-2xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-          <div className="flex gap-3 p-4 border border-gray-200 rounded-xl">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+        {/* Contact cards — Email + Response Time + Telegram */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+          <div className="flex gap-3 p-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
               <Mail className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-gray-800">Email</p>
-              <p className="text-sm text-gray-500">hello@quicktoolshub.com</p>
+              <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">Email</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 break-all">hello@quicktoolshub.com</p>
             </div>
           </div>
-          <div className="flex gap-3 p-4 border border-gray-200 rounded-xl">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+
+          <div className="flex gap-3 p-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
               <MessageSquare className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-gray-800">Response Time</p>
-              <p className="text-sm text-gray-500">Usually within 24 hours</p>
+              <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">Response Time</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Usually within 24 hours</p>
             </div>
           </div>
+
+          {/* Telegram — new addition */}
+          <a
+            href="https://t.me/quicktoolshub"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="link-telegram"
+            className="flex gap-3 p-4 border border-blue-200 dark:border-blue-700 rounded-xl bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors group"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[#29a8e0] flex items-center justify-center flex-shrink-0 text-white group-hover:bg-[#1a96ce] transition-colors">
+              <TelegramIcon />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">Telegram</p>
+              <p className="text-sm text-[#29a8e0] dark:text-blue-400 group-hover:underline">@quicktoolshub</p>
+            </div>
+          </a>
         </div>
 
         {submitted ? (
-          <div className="text-center py-10 border-2 border-green-200 rounded-2xl bg-green-50">
-            <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Send className="w-7 h-7 text-green-600" />
+          <div className="text-center py-10 border-2 border-green-200 dark:border-green-700 rounded-2xl bg-green-50 dark:bg-green-900/20 transition-colors">
+            <div className="w-14 h-14 bg-green-100 dark:bg-green-800 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Send className="w-7 h-7 text-green-600 dark:text-green-400" />
             </div>
-            <h2 className="text-xl font-bold text-gray-800 mb-2">Message Sent!</h2>
-            <p className="text-gray-500">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">Message Sent!</h2>
+            <p className="text-gray-500 dark:text-gray-400">Thank you for reaching out. We'll get back to you within 24 hours.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4 bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <form onSubmit={handleSubmit} className="space-y-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-sm transition-colors">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
                 <input
                   data-testid="input-name"
                   type="text"
@@ -69,11 +96,11 @@ export default function Contact() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder="Your full name"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                  className="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
                 <input
                   data-testid="input-email"
                   type="email"
@@ -81,12 +108,12 @@ export default function Contact() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="your@email.com"
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                  className="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Subject</label>
               <input
                 data-testid="input-subject"
                 type="text"
@@ -94,11 +121,11 @@ export default function Contact() {
                 value={form.subject}
                 onChange={(e) => setForm({ ...form, subject: e.target.value })}
                 placeholder="What is this about?"
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
+                className="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
               <textarea
                 data-testid="input-message"
                 required
@@ -106,7 +133,7 @@ export default function Contact() {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 placeholder="Describe your question or feedback..."
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none"
+                className="w-full px-4 py-2.5 border border-gray-200 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none"
               />
             </div>
             <button

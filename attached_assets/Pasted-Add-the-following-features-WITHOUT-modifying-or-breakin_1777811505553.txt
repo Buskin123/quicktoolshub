@@ -1,0 +1,78 @@
+Add the following features WITHOUT modifying or breaking any existing functionality, scripts, or tool logic.
+
+STRICT RULES:
+- DO NOT change any existing JavaScript logic for tools
+- DO NOT remove or edit existing scripts
+- DO NOT refactor project structure
+- ONLY ADD new code (HTML, CSS, minimal JS)
+- Ensure everything remains fully functional
+
+--------------------------------------
+TASK 1: Add Theme Toggle (Light/Dark)
+--------------------------------------
+
+- Add a toggle button in the header (top right)
+- Label: 🌙 / ☀️ icon or "Dark Mode"
+
+Functionality:
+- Toggle between light and dark theme
+- Save user preference using localStorage
+- Apply theme on page load
+
+Implementation:
+- Use CSS variables or a class like: .dark-mode
+- Do NOT overwrite existing styles — extend them
+
+Example behavior:
+- Default = light
+- If user enables dark mode → save in localStorage
+- Reload → same theme stays
+
+--------------------------------------
+TASK 2: Add FAQ Section
+--------------------------------------
+
+- Add "Frequently Asked Questions" section to:
+  1. Homepage
+  2. All tool pages
+
+- Include 4–5 simple Q&A:
+  - Is this tool free?
+  - Is my data safe?
+  - Do I need to sign up?
+  - Does it work on mobile?
+  - What formats are supported?
+
+- Place FAQ below main content
+- Match existing UI design
+- Mobile-friendly
+
+--------------------------------------
+TASK 3: Add Telegram Contact
+--------------------------------------
+
+- Update Contact Us page:
+  - Add Telegram link (clickable)
+  - Opens in new tab
+
+Example:
+https://t.me/yourchannel
+
+- DO NOT remove existing email (if present)
+- Just ADD Telegram as extra contact
+
+--------------------------------------
+UI RULES:
+--------------------------------------
+
+- Keep current design intact
+- Match colors, spacing, typography
+- No layout breaking
+- Ensure mobile responsiveness
+
+--------------------------------------
+GOAL:
+--------------------------------------
+
+Enhance UX (dark mode), SEO (FAQ), and trust (Telegram)
+WITHOUT affecting any existing working tools.
