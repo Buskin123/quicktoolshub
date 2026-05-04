@@ -8,12 +8,12 @@ import { AdBanner } from "@/components/layout/AdBanner";
 import { tools } from "@/data/tools";
 
 const faqs = [
+  { q: "Are these tools free to use?", a: "Yes, all tools are completely free to use. There are no hidden charges, no subscription plans, and no credit card required — ever." },
+  { q: "Is my data safe?", a: "Yes, most tools process files locally in your browser and do not store, upload, or share your data with any server. Your files stay entirely on your device." },
+  { q: "Do I need to sign up?", a: "No signup is required. Simply open the tool you need and start using it instantly — no account, no login, no forms." },
+  { q: "Does it work on mobile?", a: "Yes, the site is fully mobile-friendly and works on all modern smartphones and tablets." },
+  { q: "What tools are available?", a: "QuickToolsHub offers PDF tools (merge, compress, convert), image tools (compressor, JPG/PNG converter), calculators (EMI, GST, age, percentage), and generators (QR code, password)." },
   { q: "What is QuickToolsHub?", a: "QuickToolsHub is a free online platform offering a collection of useful tools including PDF converters, image processors, and calculators. All tools run directly in your browser — no account needed." },
-  { q: "Is QuickToolsHub completely free?", a: "Yes, all tools on QuickToolsHub are 100% free to use. There are no hidden charges, no subscription plans, and no credit card required." },
-  { q: "Is my data safe and private?", a: "Absolutely. All processing happens directly in your browser. Your files are never uploaded to our servers, so your data stays completely private and secure." },
-  { q: "Do I need to create an account?", a: "No registration is required. Simply visit the tool you need and start using it instantly — no sign-up, no login." },
-  { q: "What file formats are supported?", a: "QuickToolsHub supports JPG, PNG, and PDF formats for file tools. Calculators work with standard numeric inputs." },
-  { q: "Can I use QuickToolsHub on my phone?", a: "Yes! QuickToolsHub is fully mobile-responsive and works great on smartphones and tablets." },
   { q: "How many files can I convert at once?", a: "Most tools support multiple file uploads. The Merge PDF tool accepts multiple PDFs, and the Image to PDF tool supports multiple images in one batch." },
   { q: "Are there any file size limits?", a: "Since processing happens locally in your browser, limits depend on your device's memory. Most standard files work smoothly." },
 ];
@@ -184,19 +184,43 @@ export default function Home() {
       </section>
 
       {/* SEO Content */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Your Go-To Online Utility Toolkit</h2>
-          <div className="prose prose-gray mx-auto text-gray-600 text-sm leading-relaxed space-y-4">
-            <p>
-              QuickToolsHub is a free online tools website designed to help individuals, students, freelancers, and businesses handle everyday digital tasks quickly and securely. Whether you need to convert an image to PDF, compress a large file for email, calculate your loan EMI, or generate a secure password — we have the right tool, available instantly, without any login.
-            </p>
-            <p>
-              Our PDF tools allow you to merge multiple PDF documents, compress PDF file sizes, convert images to PDF, and extract text content from PDFs. Image tools include a browser-based image compressor, JPG to PNG converter, PNG to JPG converter, and a background remover. Our calculator suite covers EMI calculations, GST computation, age calculation, and percentage arithmetic.
-            </p>
-            <p>
-              All processing happens directly in your browser using modern web APIs. No file is ever sent to a server. This means your sensitive documents stay private, your data is safe, and there are no bandwidth limits. QuickToolsHub is designed for Google's Core Web Vitals — fast loading, mobile-friendly, and accessible.
-            </p>
+      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Free Online Tools for Everyday Use</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div className="space-y-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              <p>
+                QuickTools Hub is a free online platform that provides powerful and easy-to-use tools for PDF editing, image conversion, and everyday calculations. Whether you need to merge PDF files, compress images, or calculate EMI and GST, our tools are designed to save your time and effort.
+              </p>
+              <p>
+                All tools are fast, secure, and work directly in your browser. We prioritize your privacy — most tools process files locally, meaning your data is never uploaded to any server.
+              </p>
+              <p>
+                QuickToolsHub is designed for individuals, students, freelancers, and businesses who need reliable digital tools available instantly — no account required, no software to install, no fees.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6">
+              <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-4 text-base">What you can do with QuickToolsHub:</h3>
+              <ul className="space-y-3">
+                {[
+                  "Merge, compress, and convert PDF files",
+                  "Convert JPG to PNG and PNG to JPG",
+                  "Free calculators for EMI, GST, percentage, and age",
+                  "QR code and password generator tools",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
+                    <span className="mt-0.5 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <svg className="w-3 h-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
