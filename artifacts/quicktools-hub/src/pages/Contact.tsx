@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Mail, MessageSquare, Send } from "lucide-react";
+import { MessageSquare, Send, ExternalLink } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 
 function TelegramIcon() {
@@ -24,56 +24,53 @@ export default function Contact() {
     <Layout>
       <Helmet>
         <title>Contact Us | QuickToolsHub</title>
-        <meta name="description" content="Get in touch with the QuickToolsHub team. We're happy to help with questions, feedback, or partnership inquiries." />
+        <meta name="description" content="Get in touch with the QuickToolsHub team via Telegram. We're happy to help with questions, feedback, or support inquiries." />
         <link rel="canonical" href="https://quicktoolshub.com/contact" />
       </Helmet>
 
       <div className="bg-gradient-to-b from-blue-50 dark:from-blue-900/20 to-white dark:to-gray-950 py-14 px-4 transition-colors">
         <div className="max-w-2xl mx-auto text-center">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Contact Us</h1>
-          <p className="text-gray-500 dark:text-gray-400">Have a question, suggestion, or found a bug? We'd love to hear from you.</p>
+          <p className="text-gray-500 dark:text-gray-400 leading-relaxed">
+            For support, questions, or feedback, feel free to reach out through our official Telegram channel. We aim to respond as quickly as possible.
+          </p>
         </div>
       </div>
 
       <div className="max-w-2xl mx-auto px-4 py-12">
-        {/* Contact cards — Email + Response Time + Telegram */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-          <div className="flex gap-3 p-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 transition-colors">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
-              <Mail className="w-5 h-5 text-primary" />
+        {/* Contact cards — Telegram + Response Time */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          {/* Telegram */}
+          <a
+            href="https://t.me/quicktoolshub"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="link-telegram"
+            className="flex gap-3 p-5 border border-blue-200 dark:border-blue-700 rounded-xl bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors group"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[#29a8e0] flex items-center justify-center flex-shrink-0 text-white group-hover:bg-[#1a96ce] transition-colors">
+              <TelegramIcon />
             </div>
             <div>
-              <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">Email</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 break-all">hello@quicktoolshub.com</p>
+              <p className="text-sm font-semibold text-gray-800 dark:text-gray-100 flex items-center gap-1">
+                Telegram <ExternalLink className="w-3 h-3 opacity-50" />
+              </p>
+              <p className="text-sm text-[#29a8e0] dark:text-blue-400 group-hover:underline">@quicktoolshub</p>
+              <p className="text-xs text-gray-400 mt-0.5">Preferred contact method</p>
             </div>
-          </div>
+          </a>
 
-          <div className="flex gap-3 p-4 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 transition-colors">
+          {/* Response Time */}
+          <div className="flex gap-3 p-5 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 transition-colors">
             <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
               <MessageSquare className="w-5 h-5 text-primary" />
             </div>
             <div>
               <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">Response Time</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">Usually within 24 hours</p>
+              <p className="text-xs text-gray-400 mt-0.5">Mon – Sat</p>
             </div>
           </div>
-
-          {/* Telegram — new addition */}
-          <a
-            href="https://t.me/quicktoolshub"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="link-telegram"
-            className="flex gap-3 p-4 border border-blue-200 dark:border-blue-700 rounded-xl bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-[#29a8e0] flex items-center justify-center flex-shrink-0 text-white group-hover:bg-[#1a96ce] transition-colors">
-              <TelegramIcon />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">Telegram</p>
-              <p className="text-sm text-[#29a8e0] dark:text-blue-400 group-hover:underline">@quicktoolshub</p>
-            </div>
-          </a>
         </div>
 
         {submitted ? (
