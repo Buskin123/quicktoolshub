@@ -11,10 +11,10 @@ export default function Terms() {
       </Helmet>
 
       <div className="max-w-3xl mx-auto px-4 py-14">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Terms & Conditions</h1>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">Terms & Conditions</h1>
         <p className="text-sm text-gray-400 mb-8">Last updated: May 2026</p>
 
-        <div className="space-y-6 text-gray-600 text-sm leading-relaxed">
+        <div className="space-y-6 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
           {[
             ["1. Acceptance of Terms", "By using QuickToolsHub, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services."],
             ["2. Use of Services", "QuickToolsHub provides free browser-based tools for personal and commercial use. You may not use our tools for illegal activities, to process malicious files, or to violate third-party intellectual property rights."],
@@ -27,7 +27,7 @@ export default function Terms() {
             ["9. Contact", "For questions about these Terms, contact us via Telegram: https://t.me/quicktoolshub"],
           ].map(([title, content]) => (
             <section key={title as string}>
-              <h2 className="text-xl font-bold text-gray-800 mb-2">{title}</h2>
+              <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">{title}</h2>
               <p>{content}</p>
             </section>
           ))}

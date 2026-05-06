@@ -11,10 +11,10 @@ export default function Disclaimer() {
       </Helmet>
 
       <div className="max-w-3xl mx-auto px-4 py-14">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Disclaimer</h1>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">Disclaimer</h1>
         <p className="text-sm text-gray-400 mb-8">Last updated: May 2026</p>
 
-        <div className="space-y-6 text-gray-600 text-sm leading-relaxed">
+        <div className="space-y-6 text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
           {[
             ["General Disclaimer", "The information and tools provided on QuickToolsHub are for general informational and utility purposes only. While we strive to keep all tools accurate and up to date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of any tool or information on this website."],
             ["Calculator Tools", "Our calculators (EMI, GST, Age, Percentage) are intended for informational purposes only. Results should not be used as a substitute for professional financial, legal, or mathematical advice. Always verify results with qualified professionals before making financial decisions."],
@@ -27,7 +27,7 @@ export default function Disclaimer() {
             ["Contact", "For any questions regarding this Disclaimer, please contact us via Telegram: https://t.me/quicktoolshub"],
           ].map(([title, content]) => (
             <section key={title as string}>
-              <h2 className="text-xl font-bold text-gray-800 mb-2">{title}</h2>
+              <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">{title}</h2>
               <p>{content}</p>
             </section>
           ))}
