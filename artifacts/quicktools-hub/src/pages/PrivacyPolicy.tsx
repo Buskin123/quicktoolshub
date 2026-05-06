@@ -38,13 +38,14 @@ export default function PrivacyPolicy() {
               <li><strong>Advertising:</strong> Google AdSense and Monetag use cookies to display relevant advertisements. These advertising cookies track your browsing activity across sites to serve personalised ads.</li>
             </ul>
             <p className="mt-2">You can disable cookies at any time through your browser settings. Note that disabling cookies may affect some site functionality.</p>
+            <p className="mt-2">By using this website, you consent to the use of cookies in accordance with this Privacy Policy.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">5. Advertising</h2>
             <p>We use Google AdSense and may use Monetag to display advertisements on our website. These third-party ad networks may use cookies to serve ads based on your prior visits to this or other websites.</p>
-            <p className="mt-3">Google may use personalised advertising cookies to serve ads based on your interests and previous visits to this or other websites. Users may opt out of personalised advertising by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google Ads Settings</a>.</p>
-            <p className="mt-3">For more information on how Google uses data when you use our site, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google's Privacy & Terms</a>.</p>
+            <p className="mt-3">Google may use personalised advertising cookies to serve ads based on your interests and previous visits to this or other websites. Users may opt out of personalised advertising by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://adssettings.google.com</a>.</p>
+            <p className="mt-3">For more information on how Google uses data when you use our site, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google's Privacy & Terms</a> and <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://policies.google.com/technologies/ads</a>.</p>
           </section>
 
           <section>
@@ -58,7 +59,17 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">8. Contact</h2>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">9. Children's Information</h2>
+            <p>QuickToolsHub does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you believe that your child has provided such information on our website, please contact us and we will remove such information promptly.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">10. Updates to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">11. Contact</h2>
             <p>
               For privacy-related inquiries, contact us via Telegram:{" "}
               <a
