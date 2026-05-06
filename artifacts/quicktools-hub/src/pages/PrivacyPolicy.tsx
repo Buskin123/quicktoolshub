@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
 
       <div className="max-w-3xl mx-auto px-4 py-14">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">Privacy Policy</h1>
-        <p className="text-sm text-gray-400 mb-8">Last updated: January 2025</p>
+        <p className="text-sm text-gray-400 mb-8">Last updated: May 2026</p>
 
         <div className="prose prose-gray max-w-none space-y-6 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
           <section>
@@ -59,17 +59,17 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">9. Children's Information</h2>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">8. Children's Information</h2>
             <p>QuickToolsHub does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you believe that your child has provided such information on our website, please contact us and we will remove such information promptly.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">10. Updates to This Policy</h2>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">9. Updates to This Policy</h2>
             <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">11. Contact</h2>
+            <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2">10. Contact</h2>
             <p>
               For privacy-related inquiries, contact us via Telegram:{" "}
               <a
