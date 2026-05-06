@@ -12,7 +12,7 @@ export default function Disclaimer() {
 
       <div className="max-w-3xl mx-auto px-4 py-14">
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Disclaimer</h1>
-        <p className="text-sm text-gray-400 mb-8">Last updated: January 2025</p>
+        <p className="text-sm text-gray-400 mb-8">Last updated: May 2026</p>
 
         <div className="space-y-6 text-gray-600 text-sm leading-relaxed">
           {[
@@ -22,7 +22,9 @@ export default function Disclaimer() {
             ["No Professional Advice", "Nothing on QuickToolsHub constitutes professional financial, legal, or technical advice. Always consult relevant professionals for important decisions."],
             ["External Links", "QuickToolsHub may contain links to external websites. We have no control over the content or nature of those sites and accept no responsibility for any loss or damage that may arise from using them."],
             ["Limitation of Liability", "In no event shall QuickToolsHub be liable for any loss or damage including without limitation, indirect or consequential loss or damage arising out of or in connection with the use of this website or its tools."],
-            ["Changes", "We reserve the right to update this Disclaimer at any time without notice. Your continued use of the website constitutes acceptance of any changes."],
+            ["Advertising Disclaimer", "This website displays advertisements provided by third-party ad networks such as Google AdSense. We do not control the content of these ads and are not responsible for any claims, products, or services advertised."],
+            ["Changes", "We reserve the right to update this Disclaimer at any time. Changes will be reflected on this page. Your continued use of the website constitutes acceptance of any changes."],
+            ["Contact", "For any questions regarding this Disclaimer, please contact us via Telegram: https://t.me/quicktoolshub"],
           ].map(([title, content]) => (
             <section key={title as string}>
               <h2 className="text-xl font-bold text-gray-800 mb-2">{title}</h2>
