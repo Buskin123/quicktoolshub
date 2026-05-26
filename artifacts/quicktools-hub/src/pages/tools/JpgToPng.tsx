@@ -5,6 +5,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "jpg-to-png")!;
 
+const toolInfo = {
+  about: [
+    "The JPG to PNG converter transforms your JPEG images into the PNG format entirely within your browser. PNG is a lossless format that supports transparent backgrounds, making it the preferred choice for logos, icons, web graphics, and design assets.",
+    "Unlike JPG, which uses lossy compression that subtly degrades quality with each save, PNG files retain every pixel of data exactly as captured. This makes PNG ideal when you need crisp edges, sharp text, or plan to further edit the image without quality loss.",
+    "The conversion uses the browser's built-in Canvas API to redraw the image and export it as a PNG file. No data leaves your device, and the resulting file is downloaded directly to your computer.",
+  ],
+  whyUse: [
+    "Convert to PNG to gain support for transparent backgrounds",
+    "PNG is a lossless format — no quality degradation on re-saving",
+    "Ideal for preparing images for design tools like Figma or Canva",
+    "Completely browser-based with no file upload to any server",
+    "Fast conversion with instant preview and one-click download",
+  ],
+  features: [
+    "Instant conversion using the browser's native Canvas API",
+    "Before-and-after preview showing both the original and converted image",
+    "Outputs a standard PNG file compatible with all applications",
+    "Drag-and-drop or click-to-select upload interface",
+    "One-click download of the converted PNG",
+  ],
+  benefits: [
+    "Enable transparent backgrounds for logos and icons",
+    "Preserve image quality for multi-step editing workflows",
+    "Ensure compatibility with design software that requires PNG input",
+    "Prepare images for web use where lossless quality is needed",
+  ],
+  useCases: [
+    "Designers converting product photos to PNG for background removal",
+    "Developers preparing icons and sprites in PNG format for web apps",
+    "Bloggers converting JPG screenshots to PNG for sharper text",
+    "Students converting image formats for design or presentation software",
+    "Creating PNG versions of logos for use on different coloured backgrounds",
+  ],
+  faqs: [
+    { q: "Will converting JPG to PNG improve the image quality?", a: "No. Converting to PNG prevents further quality loss, but it cannot recover detail that was already lost during JPG compression. The result will look identical to the original JPG." },
+    { q: "Does PNG support transparent backgrounds?", a: "Yes, PNG natively supports transparency. However, since your JPG has no transparency data, the converted PNG will have a solid white background by default." },
+    { q: "Will the PNG file be larger than the JPG?", a: "Yes. PNG files are generally larger than JPGs because PNG uses lossless compression. This is the trade-off for better quality and transparency support." },
+    { q: "Can I convert multiple images at once?", a: "Currently the tool converts one image at a time. Simply run it again for each additional image you need to convert." },
+  ],
+};
+
 export default function JpgToPng() {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -47,6 +88,7 @@ export default function JpgToPng() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Convert JPG images to PNG format online for free. Preserve transparency and quality with instant browser-based conversion."
       howToSteps={["Upload your JPG or JPEG image.", "Click 'Convert to PNG' to process.", "Download the converted PNG file."]}
     >

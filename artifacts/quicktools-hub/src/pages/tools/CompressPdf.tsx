@@ -6,6 +6,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "compress-pdf")!;
 
+const toolInfo = {
+  about: [
+    "The Compress PDF tool reduces the file size of your PDF documents so they're easier to email, upload to portals, or store on your device. The compression runs entirely in your browser using the PDF-Lib library, so your files are never sent to any external server.",
+    "Compression works by re-encoding the internal PDF object streams into a more compact format. While the reduction varies depending on the original file's content and how it was created, most PDFs see a meaningful decrease in size — especially those with redundant metadata or unoptimized object structures.",
+    "This tool is particularly useful when you need to meet file size limits on job application portals, government submission forms, or email attachments. You can see the before-and-after file size comparison on screen before downloading.",
+  ],
+  whyUse: [
+    "Instantly reduce PDF size without any cloud upload or registration",
+    "See exact before-and-after file sizes in the result",
+    "Privacy-first — all compression happens on your device",
+    "Free with no usage caps or watermarks added",
+    "Works on any modern browser including mobile",
+  ],
+  features: [
+    "Single-click compression with automatic optimization",
+    "Real-time size comparison showing original vs compressed size",
+    "Uses object stream compression for maximum space savings",
+    "Supports any PDF regardless of how it was created",
+    "Instant download of the compressed file",
+  ],
+  benefits: [
+    "Meet email attachment limits without manually splitting files",
+    "Upload to government and job portals that cap file sizes",
+    "Save storage space on devices and cloud drives",
+    "Share documents faster over slow internet connections",
+  ],
+  useCases: [
+    "Compressing resumes and cover letters for online job applications",
+    "Reducing document size before uploading to government e-portals",
+    "Shrinking invoices and reports before emailing clients",
+    "Optimizing PDF ebooks and manuals for mobile reading",
+    "Preparing compressed documents for WhatsApp or messaging app sharing",
+  ],
+  faqs: [
+    { q: "How much will my PDF shrink?", a: "Results vary by file. PDFs with lots of embedded images or unoptimized structure tend to compress more. Text-heavy, already-optimized PDFs may see smaller reductions." },
+    { q: "Will compression affect the visual quality of my PDF?", a: "This tool uses lossless structural compression — it does not re-compress embedded images, so visual quality is preserved." },
+    { q: "Can I compress multiple PDFs at once?", a: "Currently the tool processes one PDF at a time. Simply run it again for each file you need to compress." },
+    { q: "Why is my compressed file the same size as the original?", a: "If your PDF was already well-optimized, there may be little room for further reduction. This is normal for PDFs exported from modern applications." },
+  ],
+};
+
 export default function CompressPdf() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -35,6 +76,7 @@ export default function CompressPdf() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Compress PDF file size online for free. Reduce PDF size for email or upload while keeping content intact."
       howToSteps={[
         "Click 'Select PDF' and choose your PDF file.",

@@ -4,6 +4,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "percentage-calculator")!;
 
+const toolInfo = {
+  about: [
+    "The Percentage Calculator provides three distinct calculation modes to handle the most common percentage problems you encounter in daily life. Whether you need to find X% of a number, determine what percentage one number is of another, or calculate the percentage change between two values, this tool has you covered.",
+    "Each mode is designed for a specific real-world scenario. The 'X% of Y' mode is perfect for calculating discounts or tips. The 'what percentage' mode helps you work out exam scores or sales ratios. The 'percentage change' mode is essential for analysing growth rates, price changes, or performance improvements.",
+    "All calculations happen instantly in your browser as you type. Results are shown clearly with a description of what was calculated, making it easy to verify the output makes sense.",
+  ],
+  whyUse: [
+    "Three calculation modes cover virtually all percentage scenarios",
+    "Instant results as you type — no submit button needed",
+    "Results include a description so you can verify correctness",
+    "Supports decimal inputs for precise calculations",
+    "Free, private, and works offline once the page loads",
+  ],
+  features: [
+    "Mode 1: Calculate X% of Y (e.g., 15% of 2,500)",
+    "Mode 2: Find what percentage X is of Y (e.g., marks out of total)",
+    "Mode 3: Calculate percentage increase or decrease from X to Y",
+    "Supports decimal values in all input fields",
+    "Descriptive result label confirming what was calculated",
+  ],
+  benefits: [
+    "Quickly calculate discounts while shopping without mental maths",
+    "Verify exam scores and grade percentages effortlessly",
+    "Track business KPIs with accurate percentage change calculations",
+    "Calculate tips, service charges, and split bills accurately",
+  ],
+  useCases: [
+    "Calculating a 20% discount on a product's original price",
+    "Finding what percentage of exam marks a student scored",
+    "Measuring monthly revenue growth as a percentage change",
+    "Computing GST or service tax amounts from base prices",
+    "Calculating profit margin percentage for sales reporting",
+  ],
+  faqs: [
+    { q: "What are the three calculation modes?", a: "Mode 1 finds X% of Y. Mode 2 finds what percentage X is of Y. Mode 3 calculates the percentage increase or decrease from X to Y." },
+    { q: "Can I use decimal numbers?", a: "Yes. All three modes accept decimal inputs for precise calculations. For example, you can calculate 12.5% of 3,750." },
+    { q: "How accurate are the results?", a: "Results are accurate to 4 decimal places, with trailing zeros removed for cleaner display. Percentage change is shown to 2 decimal places." },
+    { q: "Can I use this for business calculations?", a: "Yes. The calculator is suitable for business use including margin calculations, growth rate analysis, discount computing, and tax estimation." },
+  ],
+};
+
 export default function PercentageCalculator() {
   const [mode, setMode] = useState(0);
   const [a, setA] = useState("");
@@ -30,6 +71,7 @@ export default function PercentageCalculator() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Free percentage calculator — find X% of Y, what percent X is of Y, and percentage change between values."
       howToSteps={["Select the calculation mode.", "Enter the required values.", "See the result instantly."]}
     >

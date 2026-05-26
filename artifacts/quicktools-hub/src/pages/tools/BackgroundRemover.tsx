@@ -5,6 +5,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "background-remover")!;
 
+const toolInfo = {
+  about: [
+    "The AI Background Remover will automatically detect the subject of your image and remove the background in seconds, producing a clean PNG with a transparent background. No manual selection, no masking — just upload your image and let the AI do the work.",
+    "Unlike manual editing in tools like Photoshop, AI-powered background removal uses machine learning models trained on millions of images to precisely separate subjects from their backgrounds. This produces professional-quality results for product photos, portrait shots, and graphic design assets.",
+    "This feature is currently in development. We are building the processing model to run efficiently within the browser to maintain our core promise of complete privacy — your images will never be uploaded to any server.",
+  ],
+  whyUse: [
+    "AI automatically detects and removes backgrounds — no manual work needed",
+    "Will produce transparent PNG output compatible with all design tools",
+    "Browser-based processing will keep your images completely private",
+    "Free to use for everyone — no subscription or credits system",
+    "Join the waitlist now and be first to access when it launches",
+  ],
+  features: [
+    "AI-powered subject detection for accurate edge recognition",
+    "Outputs transparent PNG files ready for design workflows",
+    "Will support portraits, products, objects, and complex scenes",
+    "Browser-based ML model for complete privacy",
+    "Instant download of the background-removed image",
+  ],
+  benefits: [
+    "Create professional product photos without a photo studio",
+    "Prepare clean profile pictures for LinkedIn or business profiles",
+    "Design stickers, icons, and graphics without manual masking",
+    "Save hours of manual editing time in Photoshop or similar tools",
+  ],
+  useCases: [
+    "E-commerce sellers removing backgrounds from product photos",
+    "HR teams creating consistent employee headshots for directories",
+    "Graphic designers isolating subjects for poster and banner designs",
+    "Content creators preparing custom stickers and thumbnails",
+    "Photographers delivering clean subject cutouts to clients",
+  ],
+  faqs: [
+    { q: "When will the background remover be available?", a: "We are actively developing this feature. Join the waitlist with your email to receive early access as soon as it launches." },
+    { q: "How does AI background removal work?", a: "AI models trained on segmentation tasks identify the foreground subject and background pixels in an image, then mask out the background to produce a transparent PNG output." },
+    { q: "Will it work on complex backgrounds?", a: "Modern AI background removers handle most scenes including outdoor photos, studio shots, and cluttered backgrounds. Results are best when the subject is clearly distinct from the background." },
+    { q: "Will this feature always be free?", a: "Yes. Like all tools on QuickToolsHub, the background remover will be completely free to use with no credits or subscription required." },
+  ],
+};
+
 export default function BackgroundRemover() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -12,6 +53,7 @@ export default function BackgroundRemover() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Remove image backgrounds online. AI-powered background removal coming soon — join the waitlist for early access."
     >
       <div className="text-center py-6">

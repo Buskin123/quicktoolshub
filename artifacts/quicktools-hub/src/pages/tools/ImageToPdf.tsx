@@ -6,6 +6,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "image-to-pdf")!;
 
+const toolInfo = {
+  about: [
+    "The Image to PDF converter lets you combine one or more JPG or PNG images into a single, professional-quality PDF document — entirely within your browser. No software installation, no cloud upload, and no account required.",
+    "This tool is ideal for anyone who needs to submit scanned documents, share photo collections, or turn visual content into a portable document format. Each image becomes its own page in the PDF, and the page dimensions automatically match the image size for a perfect fit.",
+    "Since all processing happens locally using the PDF-Lib library, your files are never transmitted over the internet. This makes it a safe choice for sensitive documents like ID scans, medical reports, or confidential business materials.",
+  ],
+  whyUse: [
+    "No software installation required — works in any modern browser",
+    "Your images never leave your device — complete privacy guaranteed",
+    "Combine multiple images into one organized PDF in seconds",
+    "Supports both JPG and PNG formats seamlessly",
+    "Completely free with no file size restrictions imposed by us",
+  ],
+  features: [
+    "Drag-and-drop or click-to-upload interface for easy image selection",
+    "Multi-image support — add as many images as your device can handle",
+    "Automatic page sizing based on each image's original dimensions",
+    "Numbered preview grid so you can verify the page order before converting",
+    "One-click download of the finished PDF",
+  ],
+  benefits: [
+    "Save time by bundling multiple images into a single shareable file",
+    "Reduce email attachments from many files to just one clean PDF",
+    "Create professional-looking documents from phone camera photos",
+    "Avoid quality loss — images are embedded at their original resolution",
+  ],
+  useCases: [
+    "Students scanning and submitting handwritten notes or assignments",
+    "Freelancers creating PDF portfolios from design screenshots",
+    "Combining multiple receipt photos into a single expense report",
+    "Converting whiteboard photos from meetings into a shareable PDF",
+    "Preparing scanned documents for online application portals",
+  ],
+  faqs: [
+    { q: "Can I add multiple images to one PDF?", a: "Yes. You can add as many JPG or PNG images as you like. Each image becomes a separate page in the output PDF, in the order shown in the preview grid." },
+    { q: "Does the tool preserve image quality?", a: "Yes. Images are embedded into the PDF at their original resolution without any quality reduction." },
+    { q: "Is there a file size limit?", a: "We don't impose a server-side limit since all processing happens in your browser. Very large images may take longer depending on your device's memory." },
+    { q: "Can I reorder the images before converting?", a: "The images appear in the order you add them. To reorder, clear all and re-add them in the desired sequence." },
+  ],
+};
+
 export default function ImageToPdf() {
   const [images, setImages] = useState<{ file: File; url: string }[]>([]);
   const [loading, setLoading] = useState(false);
@@ -52,6 +93,7 @@ export default function ImageToPdf() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Convert JPG and PNG images to PDF online for free. No upload required — all processing happens in your browser instantly."
       howToSteps={[
         "Click 'Select Images' or drag and drop your JPG/PNG files.",

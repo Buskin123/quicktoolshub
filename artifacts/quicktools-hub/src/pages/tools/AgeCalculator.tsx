@@ -5,6 +5,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "age-calculator")!;
 
+const toolInfo = {
+  about: [
+    "The Age Calculator computes your exact age in years, months, and days from your date of birth. It also shows your total age in days and tells you how many days remain until your next birthday — making it far more informative than a simple year-count.",
+    "The calculation accounts for leap years, varying month lengths, and the current date automatically, so you always get a precise result without any manual arithmetic. The tool updates instantly as you change the date of birth input.",
+    "All calculations happen entirely on your device using JavaScript. No data is stored, transmitted, or logged — your date of birth is used only to produce the result and is never saved.",
+  ],
+  whyUse: [
+    "Precise age in years, months, and days — not just years",
+    "Shows total age in days and days until next birthday",
+    "Automatically accounts for leap years and varying month lengths",
+    "No data stored or transmitted — complete privacy",
+    "Instant results with no waiting or page reload",
+  ],
+  features: [
+    "Exact age breakdown: years, months, and days",
+    "Total age in days for precise duration calculations",
+    "Next birthday countdown showing days remaining",
+    "Next birthday date displayed for planning",
+    "Instant calculation on date selection",
+  ],
+  benefits: [
+    "Verify age quickly for legal documents, insurance, or applications",
+    "Plan birthday celebrations with the exact days-remaining countdown",
+    "Calculate precise ages for medical and health records",
+    "Useful for HR and payroll teams verifying employee age eligibility",
+  ],
+  useCases: [
+    "Calculating age for government ID or passport applications",
+    "Parents tracking their child's exact age for school admissions",
+    "Health professionals calculating patient ages for medical assessments",
+    "Individuals checking retirement eligibility based on exact age",
+    "Trivia and curiosity — finding out your exact age in days",
+  ],
+  faqs: [
+    { q: "How accurate is the age calculation?", a: "The calculation is precise to the day, correctly accounting for leap years and the differing number of days in each month." },
+    { q: "Can I calculate age for a future date of birth?", a: "No. The calculator requires a date of birth in the past. Future dates are not accepted since age cannot be negative." },
+    { q: "Is my date of birth saved anywhere?", a: "No. Your date of birth is used only to calculate the result in your browser and is never stored, transmitted, or logged." },
+    { q: "Why does the total days count look so large?", a: "A 30-year-old has lived approximately 10,950 days. Total days is an accurate measure of your full lifespan expressed in the smallest time unit shown." },
+  ],
+};
+
 interface AgeResult {
   years: number;
   months: number;
@@ -53,6 +94,7 @@ export default function AgeCalculator() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Calculate your exact age in years, months, and days. Find out how many days until your next birthday."
       howToSteps={["Enter your date of birth.", "Your exact age is calculated instantly.", "See your next birthday countdown."]}
     >

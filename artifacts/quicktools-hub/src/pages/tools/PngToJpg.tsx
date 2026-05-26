@@ -5,6 +5,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "png-to-jpg")!;
 
+const toolInfo = {
+  about: [
+    "The PNG to JPG converter transforms your PNG images into JPEG format with an adjustable quality setting — all running directly in your browser. JPG files are significantly smaller than PNGs, making them ideal for photos, social media, and any situation where file size matters more than transparency.",
+    "PNG files use lossless compression, which preserves every pixel perfectly but results in larger files. When you convert to JPG, any transparent areas in the PNG are replaced with a solid white background, and the image is re-encoded with lossy compression at the quality level you choose.",
+    "This tool uses the browser's Canvas API for conversion. Your image is never uploaded to any server, making it a private, fast, and reliable solution for everyday image format conversion.",
+  ],
+  whyUse: [
+    "Dramatically reduce image file size for faster sharing and uploading",
+    "Control output quality with a precise slider to suit your needs",
+    "No upload required — full privacy guaranteed",
+    "JPG is universally supported across all platforms and devices",
+    "Instant conversion with immediate preview and download",
+  ],
+  features: [
+    "Adjustable quality slider from 1–100 for precise control",
+    "Live before/after preview showing original and converted images",
+    "Transparent PNG areas converted to clean white background",
+    "Uses Canvas API for accurate, high-fidelity conversion",
+    "Download converted JPG with a single click",
+  ],
+  benefits: [
+    "Smaller file sizes load faster on websites and in email",
+    "Meet social media platform upload size restrictions easily",
+    "Reduce storage usage without discarding images permanently",
+    "Improve compatibility with systems that don't support PNG",
+  ],
+  useCases: [
+    "Photographers converting PNG exports to JPG for online galleries",
+    "Developers optimizing images for faster website page loads",
+    "Reducing PNG screenshot sizes before sharing in chats or emails",
+    "Converting design exports to JPG for social media publishing",
+    "Creating smaller versions of PNG images for archival storage",
+  ],
+  faqs: [
+    { q: "Will I lose the transparent background when converting?", a: "Yes. JPG does not support transparency. Any transparent areas in your PNG will be filled with a solid white background in the output JPG." },
+    { q: "What quality setting is recommended?", a: "A quality setting of 80–90% typically gives excellent visual results with a significant file size reduction. For web thumbnails, 60–75% is usually sufficient." },
+    { q: "How much smaller will the JPG be compared to the PNG?", a: "JPG files are typically 3–10 times smaller than equivalent PNGs, depending on image content and the quality setting you choose." },
+    { q: "Can I convert back from JPG to PNG later?", a: "Yes, using our JPG to PNG tool. However, the original transparency and any detail lost during JPG compression cannot be fully recovered." },
+  ],
+};
+
 export default function PngToJpg() {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -50,6 +91,7 @@ export default function PngToJpg() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Convert PNG images to JPG format online for free. Reduce file size with adjustable quality settings."
       howToSteps={["Upload your PNG image.", "Adjust quality if needed.", "Click 'Convert to JPG', then download."]}
     >

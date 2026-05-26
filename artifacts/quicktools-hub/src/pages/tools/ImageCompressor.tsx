@@ -6,6 +6,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "image-compressor")!;
 
+const toolInfo = {
+  about: [
+    "The Image Compressor tool reduces the file size of your JPG and PNG images using advanced browser-based compression algorithms. You can adjust the quality level from 1 to 100 to find the perfect balance between file size and visual fidelity — all without uploading your image to any server.",
+    "Powered by the browser-image-compression library, the tool uses Web Workers to process your image in the background, keeping the page responsive even for large files. The result is a compressed image that maintains the same dimensions as the original while taking up significantly less storage space.",
+    "This is particularly valuable for web developers optimizing images for faster page loads, bloggers reducing photo sizes before publishing, or anyone who needs to share images over messaging apps that have strict file size limits.",
+  ],
+  whyUse: [
+    "Control compression quality with a precise slider from 1–100",
+    "See exact before-and-after file sizes before downloading",
+    "No upload needed — all compression runs in your browser",
+    "Supports both JPG and PNG formats",
+    "Uses Web Workers for smooth, non-blocking performance",
+  ],
+  features: [
+    "Quality slider with real-time feedback on expected compression",
+    "Side-by-side file size comparison after compression",
+    "Drag-and-drop or click-to-upload image selection",
+    "Original image preview displayed before compression",
+    "Download compressed image with one click",
+  ],
+  benefits: [
+    "Faster website loading times by reducing image payload sizes",
+    "Smaller files that fit within messaging app upload limits",
+    "Lower cloud storage costs when archiving large photo libraries",
+    "Quicker email delivery with smaller image attachments",
+  ],
+  useCases: [
+    "Web developers optimizing product or blog images before publishing",
+    "Photographers reducing RAW exports for online portfolio sites",
+    "Students compressing images before attaching to assignment submissions",
+    "Social media managers preparing optimized images for faster uploads",
+    "Reducing photo sizes for WhatsApp, Telegram, or email sharing",
+  ],
+  faqs: [
+    { q: "What quality setting should I use?", a: "For most uses, 70–85% offers an excellent balance between visual quality and file size reduction. For web thumbnails, 50–70% is often sufficient." },
+    { q: "Does compression change the image dimensions?", a: "No. The compressor reduces file size by adjusting quality encoding, not by resizing. Your image retains its original width and height." },
+    { q: "Which image formats are supported?", a: "The tool supports JPG (JPEG) and PNG files. For other formats, consider converting to JPG first." },
+    { q: "How much smaller will my image be?", a: "Results vary by image content and quality setting. Typical reductions range from 30% to 80% smaller than the original." },
+  ],
+};
+
 export default function ImageCompressor() {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -45,6 +86,7 @@ export default function ImageCompressor() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Compress images online for free without losing quality. Reduce JPG and PNG file sizes instantly in your browser."
       howToSteps={[
         "Upload your JPG or PNG image.",

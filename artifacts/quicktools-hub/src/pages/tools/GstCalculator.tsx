@@ -4,6 +4,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "gst-calculator")!;
 
+const toolInfo = {
+  about: [
+    "The GST Calculator is designed for the Indian Goods and Services Tax system. It lets you quickly add GST to a base price or remove GST from an inclusive price, supporting all four standard GST slabs: 5%, 12%, 18%, and 28%.",
+    "Whether you are a business owner creating invoices, a freelancer calculating service charges, or a consumer verifying the GST component of a purchase, this tool gives you instant, accurate breakdowns of GST amount, price before GST, and price after GST.",
+    "The calculator uses the correct GST formulas — adding GST multiplies the base by (1 + rate/100), while removing GST from an inclusive price divides the tax portion by (100 + rate). All results are formatted in Indian Rupees (INR) for immediate use in billing and accounting.",
+  ],
+  whyUse: [
+    "Supports all four GST slabs: 5%, 12%, 18%, and 28%",
+    "Both 'add GST' and 'remove GST' modes in one tool",
+    "Results formatted in INR for direct use in Indian invoices",
+    "Instant calculation — no submit button, updates as you type",
+    "Free, private, and no internet connection needed after page load",
+  ],
+  features: [
+    "Toggle between Add GST and Remove GST modes",
+    "Supports 5%, 12%, 18%, and 28% GST rate slabs",
+    "Displays GST amount, pre-GST price, and post-GST price",
+    "Indian Rupee (INR) number formatting throughout",
+    "Instant recalculation on every input or rate change",
+  ],
+  benefits: [
+    "Create accurate GST-inclusive invoices in seconds",
+    "Verify GST components on supplier bills and purchase invoices",
+    "Avoid manual calculation errors in tax-sensitive documents",
+    "Useful for both registered businesses and unregistered small traders",
+  ],
+  useCases: [
+    "Freelancers calculating 18% GST on professional service invoices",
+    "Retailers adding 12% or 28% GST to product sale prices",
+    "Consumers checking how much GST is included in a bill amount",
+    "Accountants reconciling GST payable and GST paid in returns",
+    "E-commerce sellers computing inclusive prices for product listings",
+  ],
+  faqs: [
+    { q: "What GST rates does this calculator support?", a: "The calculator supports India's four standard GST slabs: 5%, 12%, 18%, and 28%, covering most goods and services." },
+    { q: "How do I add GST to a price?", a: "Select 'Add GST', enter the base price before tax, choose your GST rate, and the tool shows the GST amount and final price including GST." },
+    { q: "How do I find the pre-GST price from an inclusive amount?", a: "Select 'Remove GST', enter the total amount including GST, choose the rate, and the tool will calculate and display the original pre-GST price and the GST portion." },
+    { q: "Is this calculator specific to India?", a: "Yes. It uses Indian GST slabs and formats results in INR. The logic applies specifically to India's GST system introduced in July 2017." },
+  ],
+};
+
 const GST_RATES = [5, 12, 18, 28];
 
 export default function GstCalculator() {
@@ -22,6 +63,7 @@ export default function GstCalculator() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Free GST calculator — add or remove GST from prices. Supports 5%, 12%, 18%, and 28% GST rates."
       howToSteps={["Enter the amount.", "Select whether to add or remove GST.", "Choose the GST rate.", "See the breakdown instantly."]}
     >

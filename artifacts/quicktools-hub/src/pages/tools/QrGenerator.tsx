@@ -6,6 +6,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "qr-generator")!;
 
+const toolInfo = {
+  about: [
+    "The QR Code Generator creates scannable QR codes from any text, URL, phone number, or other string data. You can customise the foreground and background colours, adjust the output size, and download the result as a high-quality PNG image — all in your browser with no upload required.",
+    "QR codes are a fast and contactless way to share information. A single scan from any smartphone camera instantly opens a URL, displays text, or triggers a phone call — making them invaluable for business cards, restaurant menus, event check-ins, product labels, and marketing materials.",
+    "The generator uses the qrcode.react library to produce standards-compliant QR codes that are readable by all modern smartphone cameras and dedicated QR reader apps. The output PNG can be used in print, digital media, and presentations.",
+  ],
+  whyUse: [
+    "Generate QR codes for any text, URL, or data instantly",
+    "Customise colours to match your brand or design scheme",
+    "Adjustable size from small to large for any print or digital use",
+    "Download as PNG for immediate use in any project",
+    "No account, no watermark, completely free",
+  ],
+  features: [
+    "Supports any text input including URLs, plain text, and phone numbers",
+    "Custom foreground (QR pattern) colour picker",
+    "Custom background colour picker",
+    "Adjustable output size (128px to 512px)",
+    "One-click PNG download of the generated QR code",
+  ],
+  benefits: [
+    "Share website links without users needing to type long URLs",
+    "Enable contactless menu access for restaurants and cafes",
+    "Add scannable links to printed marketing materials and posters",
+    "Create branded QR codes that match your visual identity",
+  ],
+  useCases: [
+    "Adding a QR code to a business card linking to your website or LinkedIn",
+    "Generating a menu QR code for a restaurant or cafe table",
+    "Creating event check-in codes for conferences or workshops",
+    "Adding product information QR codes to packaging labels",
+    "Sharing a WiFi password via QR code for guests",
+  ],
+  faqs: [
+    { q: "What types of data can I encode in a QR code?", a: "You can encode any text string including website URLs, plain text messages, phone numbers (using 'tel:' prefix), email addresses, and more." },
+    { q: "Can I customise the QR code colours?", a: "Yes. You can set both the foreground (dark pattern) colour and the background colour using the colour pickers. Ensure sufficient contrast for reliable scanning." },
+    { q: "What format is the downloaded QR code?", a: "The QR code is downloaded as a PNG image file, which is compatible with all graphic design software, document editors, and print-ready workflows." },
+    { q: "Do QR codes generated here expire?", a: "No. QR codes are just encoded data — they don't expire. As long as the URL or content they link to remains valid, the QR code will continue to work." },
+  ],
+};
+
 export default function QrGenerator() {
   const [text, setText] = useState("https://quicktoolshub.com");
   const [size, setSize] = useState(256);
@@ -26,6 +67,7 @@ export default function QrGenerator() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Free online QR code generator. Create and download custom QR codes for URLs, text, and more."
       howToSteps={["Enter the URL or text to encode.", "Customize size and colors.", "Click 'Download QR Code' to save as PNG."]}
     >

@@ -1,25 +1,34 @@
 import { ReactNode, useState } from "react";
 import { Link } from "wouter";
-import { ChevronRight, Home, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronRight, Home, ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { AdBanner } from "@/components/layout/AdBanner";
 import { ToolCard } from "./ToolCard";
 import { Tool, tools } from "@/data/tools";
 
+export interface ToolInfo {
+  about: string[];
+  whyUse: string[];
+  features: string[];
+  benefits: string[];
+  useCases: string[];
+  faqs?: { q: string; a: string }[];
+}
+
 interface ToolPageLayoutProps {
   tool: Tool;
   children: ReactNode;
   seoDescription?: string;
   howToSteps?: string[];
+  toolInfo?: ToolInfo;
 }
 
-const toolFaqs = [
+const genericFaqs = [
   { q: "Is this tool free to use?", a: "Yes, completely free. All tools on QuickToolsHub are 100% free with no hidden charges, no subscriptions, and no credit card required." },
   { q: "Is my data safe and private?", a: "Absolutely. All processing happens directly in your browser — no files are ever uploaded to our servers. Your documents and data stay entirely on your device." },
   { q: "Do I need to sign up or create an account?", a: "No registration is required. Just open the tool and start using it immediately — no login, no account, no forms." },
   { q: "Does it work on mobile and tablet?", a: "Yes. QuickToolsHub is fully mobile-responsive and works on all modern smartphones, tablets, and desktop browsers." },
-  { q: "What file formats are supported?", a: "PDF tools support PDF files. Image tools support JPG and PNG formats. Calculators work with standard numeric inputs. Check each tool's description for specifics." },
 ];
 
 function FAQItem({ q, a }: { q: string; a: string }) {
@@ -44,8 +53,31 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-export function ToolPageLayout({ tool, children, seoDescription, howToSteps }: ToolPageLayoutProps) {
+function BulletList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-2">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-2.5 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function InfoCard({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 transition-colors">
+      <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-3">{title}</h3>
+      <BulletList items={items} />
+    </div>
+  );
+}
+
+export function ToolPageLayout({ tool, children, seoDescription, howToSteps, toolInfo }: ToolPageLayoutProps) {
   const relatedTools = tools.filter((t) => t.category === tool.category && t.id !== tool.id).slice(0, 3);
+  const allFaqs = [...(toolInfo?.faqs || []), ...genericFaqs];
 
   return (
     <Layout showSidebar>
@@ -114,11 +146,33 @@ export function ToolPageLayout({ tool, children, seoDescription, howToSteps }: T
         </div>
       )}
 
+      {toolInfo && (
+        <>
+          {/* About This Tool */}
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 mb-6 transition-colors">
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">About This Tool</h2>
+            <div className="space-y-3">
+              {toolInfo.about.map((paragraph, i) => (
+                <p key={i} className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{paragraph}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* 2×2 info grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <InfoCard title="Why Use This Tool?" items={toolInfo.whyUse} />
+            <InfoCard title="Key Features" items={toolInfo.features} />
+            <InfoCard title="Benefits" items={toolInfo.benefits} />
+            <InfoCard title="Common Use Cases" items={toolInfo.useCases} />
+          </div>
+        </>
+      )}
+
       {/* FAQ Section */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Frequently Asked Questions</h2>
         <div className="space-y-2">
-          {toolFaqs.map((faq) => (
+          {allFaqs.map((faq) => (
             <FAQItem key={faq.q} q={faq.q} a={faq.a} />
           ))}
         </div>

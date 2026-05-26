@@ -6,6 +6,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "merge-pdf")!;
 
+const toolInfo = {
+  about: [
+    "The Merge PDF tool lets you combine two or more PDF files into a single unified document — directly in your browser, without uploading anything to a server. Simply add your PDFs, and the tool stitches them together in the order you specify.",
+    "Whether you're consolidating chapters of a report, combining scanned pages of a contract, or packaging multiple invoices into one file, this tool handles it all instantly. It supports standard PDFs as well as documents that have encryption headers, gracefully skipping any pages it cannot read.",
+    "Built on the PDF-Lib library, the merging process is fast and reliable. The output preserves the original content and page dimensions of each source file, giving you a clean combined document ready to share or archive.",
+  ],
+  whyUse: [
+    "Combine unlimited PDFs into one file without any server upload",
+    "Handles encrypted or password-protected PDFs gracefully",
+    "Preserves original page layouts and content fidelity",
+    "No account, no watermarks, no restrictions — completely free",
+    "Works on desktop, tablet, and mobile browsers",
+  ],
+  features: [
+    "Add multiple PDF files via drag-and-drop or file picker",
+    "Visual file list showing filenames and order before merging",
+    "Automatic handling of encrypted PDF headers",
+    "Clear error messages if a file cannot be read",
+    "Instant download of the merged PDF on completion",
+  ],
+  benefits: [
+    "Send one consolidated file instead of multiple attachments",
+    "Keep related documents organized in a single archive",
+    "Eliminate the need for desktop PDF editors like Adobe Acrobat",
+    "Faster than printing, re-scanning, and re-uploading multiple PDFs",
+  ],
+  useCases: [
+    "Combining individual chapters into a complete research report",
+    "Merging signed contract pages returned separately by different parties",
+    "Bundling monthly invoices into a single annual financial document",
+    "Consolidating job application materials into one PDF",
+    "Packaging multiple form submissions into one file for HR records",
+  ],
+  faqs: [
+    { q: "How many PDFs can I merge at once?", a: "There is no hard limit set by us. You can add as many PDFs as your browser and device memory can handle comfortably." },
+    { q: "What happens with password-protected PDFs?", a: "The tool attempts to open encrypted PDFs using the ignoreEncryption option. If the content is readable, it will be included; otherwise, those pages are skipped and you'll see an error notice." },
+    { q: "Does the order of files matter?", a: "Yes. Pages are merged in the order your files appear in the list. Add them in the sequence you want them to appear in the final PDF." },
+    { q: "Will my PDFs be uploaded to your servers?", a: "No. All merging happens locally in your browser using JavaScript. Your files are never sent to any server." },
+  ],
+};
+
 export default function MergePdf() {
   const [files, setFiles] = useState<File[]>([]);
   const [loading, setLoading] = useState(false);
@@ -59,6 +100,7 @@ export default function MergePdf() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Merge multiple PDF files into one document online for free. Drag and drop PDFs, reorder, and download the combined file instantly."
       howToSteps={[
         "Click 'Select PDF Files' or drag and drop multiple PDFs.",

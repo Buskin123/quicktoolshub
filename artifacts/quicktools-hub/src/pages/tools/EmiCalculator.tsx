@@ -4,6 +4,47 @@ import { ToolPageLayout } from "@/components/tools/ToolPageLayout";
 
 const tool = tools.find((t) => t.id === "emi-calculator")!;
 
+const toolInfo = {
+  about: [
+    "The EMI Calculator helps you compute the Equated Monthly Instalment for any loan — whether it's a home loan, car loan, personal loan, or education loan. Enter the principal amount, annual interest rate, and loan tenure, and the calculator instantly shows your monthly EMI, total repayment amount, and total interest payable.",
+    "EMI is calculated using the standard reducing-balance formula used by all banks and financial institutions in India. This ensures the results you see here match closely with the figures quoted by your lender, giving you a reliable basis for financial planning.",
+    "The tool also generates a 12-month amortisation schedule showing how each monthly payment is split between principal repayment and interest, helping you understand how your loan balance reduces over time.",
+  ],
+  whyUse: [
+    "Uses the industry-standard EMI formula for accurate results",
+    "Shows total interest payable alongside monthly EMI",
+    "12-month amortisation table for detailed payment breakdown",
+    "Adjust inputs instantly to compare different loan scenarios",
+    "No data stored — all calculations happen in your browser",
+  ],
+  features: [
+    "Inputs for loan amount, annual interest rate, and tenure in months",
+    "Real-time EMI, total amount, and total interest display",
+    "Month-by-month amortisation schedule for the first 12 months",
+    "Indian Rupee (INR) formatting for clear readability",
+    "Instant recalculation on every input change",
+  ],
+  benefits: [
+    "Plan monthly budgets by knowing your exact loan commitment",
+    "Compare different loan amounts and tenures before applying",
+    "Understand how much of each EMI goes to interest vs principal",
+    "Make informed decisions about prepayment and loan duration",
+  ],
+  useCases: [
+    "Planning a home loan and comparing 15-year vs 20-year tenures",
+    "Checking affordability of a car loan before visiting a dealership",
+    "Students evaluating education loan repayment obligations",
+    "Comparing personal loan offers from different banks",
+    "Financial planning for self-employed individuals with irregular income",
+  ],
+  faqs: [
+    { q: "What is EMI?", a: "EMI stands for Equated Monthly Instalment — the fixed amount you pay to your lender each month until the loan is fully repaid, covering both principal and interest." },
+    { q: "Is the EMI formula the same as banks use?", a: "Yes. The tool uses the standard reducing-balance EMI formula: EMI = P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate, and n is tenure in months." },
+    { q: "Can I use this for home loans, car loans, and personal loans?", a: "Yes. The calculator works for any loan type. Simply enter the correct principal, interest rate, and tenure for your specific loan." },
+    { q: "Does the calculator account for processing fees or prepayment?", a: "No. The calculator computes pure EMI based on principal, rate, and tenure. Processing fees, GST on EMI, or prepayment charges are not included." },
+  ],
+};
+
 function calcEmi(principal: number, rate: number, months: number) {
   const r = rate / 12 / 100;
   if (r === 0) return { emi: principal / months, total: principal, interest: 0 };
@@ -38,6 +79,7 @@ export default function EmiCalculator() {
   return (
     <ToolPageLayout
       tool={tool}
+      toolInfo={toolInfo}
       seoDescription="Calculate your monthly EMI for home, car, or personal loans. See total interest and amortization schedule instantly."
       howToSteps={["Enter the loan amount.", "Set the annual interest rate.", "Choose the loan tenure in months.", "View your monthly EMI and total interest."]}
     >
