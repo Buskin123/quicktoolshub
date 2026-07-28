@@ -44,6 +44,18 @@ const toolInfo = {
     { q: "Does the tool preserve image quality?", a: "Yes. Images are embedded into the PDF at their original resolution without any quality reduction." },
     { q: "Is there a file size limit?", a: "We don't impose a server-side limit since all processing happens in your browser. Very large images may take longer depending on your device's memory." },
     { q: "Can I reorder the images before converting?", a: "The images appear in the order you add them. To reorder, clear all and re-add them in the desired sequence." },
+    { q: "Are the generated PDFs suitable for printing?", a: "Absolutely. The tool generates standard, high-quality PDF files that can be printed from any device or PDF viewer without issues." },
+    { q: "Does this tool support WebP or HEIC formats?", a: "Currently, we support only JPG and PNG formats natively in the browser. If you have WebP or HEIC images, please convert them to JPG first." },
+    { q: "Will there be a watermark on my final PDF?", a: "No, the PDF is completely clean and watermark-free. We do not brand your documents in any way." },
+    { q: "How can I reduce the file size of the generated PDF?", a: "If your images were very large, the resulting PDF might be large too. You can easily shrink it using our free Compress PDF tool after generation." },
+  ],
+  tips: [
+    "Use landscape-oriented images for best readability in the final PDF",
+    "Sort images by filename before uploading if you want them in a specific order",
+    "JPG files produce smaller PDFs; use PNG when you need transparency preserved",
+    "For scanned documents, ensure the image is well-lit and high contrast for readability",
+    "Combine related images (e.g., front and back of a document) into a single PDF for tidiness",
+    "If you need a specific page size (A4, Letter), resize your images to that ratio before uploading",
   ],
 };
 

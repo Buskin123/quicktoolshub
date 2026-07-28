@@ -42,6 +42,16 @@ const toolInfo = {
     { q: "How do I add GST to a price?", a: "Select 'Add GST', enter the base price before tax, choose your GST rate, and the tool shows the GST amount and final price including GST." },
     { q: "How do I find the pre-GST price from an inclusive amount?", a: "Select 'Remove GST', enter the total amount including GST, choose the rate, and the tool will calculate and display the original pre-GST price and the GST portion." },
     { q: "Is this calculator specific to India?", a: "Yes. It uses Indian GST slabs and formats results in INR. The logic applies specifically to India's GST system introduced in July 2017." },
+    { q: "Does this separate CGST and SGST?", a: "Currently, it shows the total GST amount. For intra-state transactions, this total is split equally (50/50) into CGST and SGST." },
+    { q: "Why is the remove GST formula different from a simple percentage deduction?", a: "Because GST is added to a base price. To reverse it from an inclusive price, you must divide the total by (1 + rate/100) instead of simply subtracting the percentage." },
+  ],
+  tips: [
+    "Use 'Add GST' mode when creating invoices from a base price",
+    "Use 'Remove GST' mode when you have received a GST-inclusive bill and need to separate the tax",
+    "18% is the most common GST rate for services in India — it applies to most professional services",
+    "For restaurants, 5% GST applies to most standard dining (no ITC); verify your specific category",
+    "Always cross-verify GST amounts against your GST registration documents",
+    "For composite scheme dealers, consult a chartered accountant as different rates apply",
   ],
 };
 

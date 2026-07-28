@@ -42,6 +42,16 @@ const toolInfo = {
     { q: "Is the EMI formula the same as banks use?", a: "Yes. The tool uses the standard reducing-balance EMI formula: EMI = P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate, and n is tenure in months." },
     { q: "Can I use this for home loans, car loans, and personal loans?", a: "Yes. The calculator works for any loan type. Simply enter the correct principal, interest rate, and tenure for your specific loan." },
     { q: "Does the calculator account for processing fees or prepayment?", a: "No. The calculator computes pure EMI based on principal, rate, and tenure. Processing fees, GST on EMI, or prepayment charges are not included." },
+    { q: "Why is the interest portion higher in the first few months?", a: "This is how reducing-balance loans work. Interest is charged on the outstanding principal, which is highest at the beginning of the loan." },
+    { q: "Can I print or save the amortization schedule?", a: "You can easily take a screenshot or use your browser's print function to save the detailed monthly breakdown." },
+  ],
+  tips: [
+    "Compare EMIs at different tenures (e.g., 5 vs 10 years) to find your sweet spot between affordability and total interest",
+    "A shorter tenure means higher EMI but less total interest paid",
+    "Even a 0.5% interest rate difference can significantly change your total repayment over long tenures",
+    "Use the amortisation table to see how much principal you repay in the first year",
+    "Consider the impact of EMI on your monthly cash flow — it should ideally stay under 40% of income",
+    "Processing fees and insurance are not included — factor those into your total borrowing cost",
   ],
 };
 

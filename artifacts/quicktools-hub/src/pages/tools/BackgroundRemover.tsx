@@ -43,6 +43,16 @@ const toolInfo = {
     { q: "How does AI background removal work?", a: "AI models trained on segmentation tasks identify the foreground subject and background pixels in an image, then mask out the background to produce a transparent PNG output." },
     { q: "Will it work on complex backgrounds?", a: "Modern AI background removers handle most scenes including outdoor photos, studio shots, and cluttered backgrounds. Results are best when the subject is clearly distinct from the background." },
     { q: "Will this feature always be free?", a: "Yes. Like all tools on QuickToolsHub, the background remover will be completely free to use with no credits or subscription required." },
+    { q: "What image formats will be supported?", a: "Once launched, the tool will support standard web image formats like JPG, JPEG, and PNG." },
+    { q: "Do I need to manually draw an outline around the subject?", a: "No, the AI is completely automatic and requires zero manual masking or outlining from you." },
+  ],
+  tips: [
+    "Subjects against simple, single-colour backgrounds will produce the cleanest results",
+    "Good lighting separates the subject from the background — brighter and more even the better",
+    "Portrait shots with clear facial edges produce very accurate AI cutouts",
+    "Product photos on white backgrounds are ideal for e-commerce background removal",
+    "After background removal, place the subject on a new background in a tool like Canva",
+    "Join the waitlist early — early access users help shape the final feature",
   ],
 };
 

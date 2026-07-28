@@ -44,6 +44,17 @@ const toolInfo = {
     { q: "What happens with password-protected PDFs?", a: "The tool attempts to open encrypted PDFs using the ignoreEncryption option. If the content is readable, it will be included; otherwise, those pages are skipped and you'll see an error notice." },
     { q: "Does the order of files matter?", a: "Yes. Pages are merged in the order your files appear in the list. Add them in the sequence you want them to appear in the final PDF." },
     { q: "Will my PDFs be uploaded to your servers?", a: "No. All merging happens locally in your browser using JavaScript. Your files are never sent to any server." },
+    { q: "Will the merged PDF preserve my clickable links?", a: "Yes, hyperlinks, internal bookmarks, and document outlines are generally preserved during the merge process." },
+    { q: "Can I merge PDFs that have different page sizes?", a: "Yes, the tool preserves the original page dimensions of each individual file within the final merged document." },
+    { q: "Are there any watermarks added to the output file?", a: "No, your merged PDF is completely watermark-free and retains its original pristine look." },
+  ],
+  tips: [
+    "Add your PDFs in the order they should appear in the final merged document",
+    "Make sure all PDFs are unlocked (not password-protected) before merging",
+    "Name your source files clearly (e.g., '01_intro.pdf', '02_chapter.pdf') so you can verify order",
+    "For large documents, merge in smaller batches if you experience slow processing",
+    "Preview each PDF before merging to ensure correct content is included",
+    "Keep a backup of your original files before merging in case you need individual copies later",
   ],
 };
 

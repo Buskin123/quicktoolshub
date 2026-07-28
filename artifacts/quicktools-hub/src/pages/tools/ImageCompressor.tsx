@@ -44,6 +44,17 @@ const toolInfo = {
     { q: "Does compression change the image dimensions?", a: "No. The compressor reduces file size by adjusting quality encoding, not by resizing. Your image retains its original width and height." },
     { q: "Which image formats are supported?", a: "The tool supports JPG (JPEG) and PNG files. For other formats, consider converting to JPG first." },
     { q: "How much smaller will my image be?", a: "Results vary by image content and quality setting. Typical reductions range from 30% to 80% smaller than the original." },
+    { q: "Can I undo the compression later?", a: "No, image compression is lossy (especially for JPGs). Always keep a backup of your original, uncompressed image." },
+    { q: "Is the compression process secure?", a: "Yes. The entire compression process happens securely within your browser using Web Workers. No images are uploaded to any server." },
+    { q: "Why did my PNG file get converted to a JPG?", a: "If your PNG does not have transparency and the quality setting requires lossy compression, some tools might convert it to a JPG format internally to save space." },
+  ],
+  tips: [
+    "Start with 80% quality for most use cases — it's barely noticeable but significantly smaller",
+    "For web use, aim for files under 200KB for fast page load times",
+    "Use 70% quality for social media thumbnails where file size matters more",
+    "Use 90%+ quality for professional portfolios where visual fidelity is paramount",
+    "Compress images before uploading to CMS platforms like WordPress for better performance",
+    "Always keep the original uncompressed image in a backup folder",
   ],
 };
 

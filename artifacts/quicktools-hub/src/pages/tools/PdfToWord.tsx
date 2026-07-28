@@ -44,6 +44,17 @@ const toolInfo = {
     { q: "What information is extracted?", a: "The tool extracts document title, author name, page count, filename, and extraction timestamp from the PDF's internal metadata fields." },
     { q: "Why can't browsers extract full PDF text?", a: "PDF text rendering involves complex font encoding and layout data that requires dedicated server-side libraries for complete extraction. Browser APIs provide access to metadata only." },
     { q: "Is my PDF file uploaded anywhere?", a: "No. Your PDF is processed entirely within your browser using the PDF-Lib library. Nothing is uploaded to any server." },
+    { q: "Can I extract metadata from password-protected PDFs?", a: "No, if the PDF requires a password to open, the browser cannot read its metadata fields without the password." },
+    { q: "What format is the extracted data saved in?", a: "The extracted metadata is saved as a clean, universally readable .txt file that you can open in Notepad, Word, or any text editor." },
+    { q: "Will this tool damage my original PDF?", a: "Not at all. The tool only reads the file and does not modify or overwrite your original PDF." },
+  ],
+  tips: [
+    "Use this tool to quickly check document metadata (author, title, page count) before sharing",
+    "Clean up PDF metadata before sharing if it contains sensitive author information",
+    "Large PDFs with many pages will still extract metadata instantly — page count doesn't affect speed",
+    "Use extracted metadata to build a file index or document register",
+    "Check author metadata on received PDFs to verify document authenticity",
+    "Export metadata before archiving documents for future reference",
   ],
 };
 

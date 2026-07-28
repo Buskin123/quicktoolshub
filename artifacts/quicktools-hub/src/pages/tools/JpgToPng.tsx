@@ -43,6 +43,16 @@ const toolInfo = {
     { q: "Does PNG support transparent backgrounds?", a: "Yes, PNG natively supports transparency. However, since your JPG has no transparency data, the converted PNG will have a solid white background by default." },
     { q: "Will the PNG file be larger than the JPG?", a: "Yes. PNG files are generally larger than JPGs because PNG uses lossless compression. This is the trade-off for better quality and transparency support." },
     { q: "Can I convert multiple images at once?", a: "Currently the tool converts one image at a time. Simply run it again for each additional image you need to convert." },
+    { q: "Can I use this for photos with faces or landscapes?", a: "Yes, you can, but PNG files for complex photos will be very large. It is generally better to keep complex photos as JPGs unless you specifically need PNG features." },
+    { q: "Is the conversion done securely?", a: "Absolutely. The image is drawn to an invisible canvas in your browser and exported as PNG directly on your device. Nothing is uploaded." },
+  ],
+  tips: [
+    "Convert to PNG when you need to overlay the image on a coloured or patterned background",
+    "PNG is preferred for screenshots with text — edges will appear sharper than JPG",
+    "Use PNG for logos and icons that will be placed on multiple background colours",
+    "Note that PNG files are larger — only convert when transparency or lossless quality is needed",
+    "After converting, use an image compressor to reduce PNG file size if needed",
+    "Keep the original JPG — you can always convert, but you cannot meaningfully go back",
   ],
 };
 

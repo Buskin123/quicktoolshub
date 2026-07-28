@@ -42,6 +42,16 @@ const toolInfo = {
     { q: "Can I use decimal numbers?", a: "Yes. All three modes accept decimal inputs for precise calculations. For example, you can calculate 12.5% of 3,750." },
     { q: "How accurate are the results?", a: "Results are accurate to 4 decimal places, with trailing zeros removed for cleaner display. Percentage change is shown to 2 decimal places." },
     { q: "Can I use this for business calculations?", a: "Yes. The calculator is suitable for business use including margin calculations, growth rate analysis, discount computing, and tax estimation." },
+    { q: "What does a negative percentage change mean?", a: "A negative result in Mode 3 simply means the new value is smaller than the original value, representing a percentage decrease." },
+    { q: "Does the calculator round off the results?", a: "Yes, it rounds results appropriately for standard usage (e.g., 2 decimal places for percentage change), ensuring they are practical for real-world scenarios." },
+  ],
+  tips: [
+    "Use Mode 1 (X% of Y) for calculating discounts, tips, or tax amounts",
+    "Use Mode 2 (X is what % of Y) to convert exam marks into percentage scores",
+    "Use Mode 3 (% Change) to calculate month-over-month or year-over-year growth rates",
+    "Negative percentage change indicates a decrease — useful for tracking cost reductions",
+    "For compound growth calculations, use Mode 3 repeatedly across multiple periods",
+    "Double-check your inputs by reversing the calculation to verify the result",
   ],
 };
 

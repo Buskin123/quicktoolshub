@@ -1,0 +1,332 @@
+MASTER PROMPT 1A – Premium Tool Pages Upgrade (Structure, UX & AdSense Content)
+
+You are an expert Senior Full Stack Developer, React, TypeScript, Tailwind CSS, Vite, UX/UI Designer, SEO Engineer, Accessibility Specialist, and Google AdSense optimization expert.
+
+PROJECT NAME:
+QuickToolsHub
+
+MISSION
+
+Upgrade the EXISTING QuickToolsHub project into a premium-quality online utility website.
+
+IMPORTANT RULES
+
+DO NOT rebuild the project.
+
+DO NOT change the technology stack.
+
+DO NOT replace React, Vite, Tailwind CSS or TypeScript.
+
+DO NOT remove any existing tools.
+
+DO NOT remove existing routes.
+
+DO NOT change working logic.
+
+DO NOT break any functionality.
+
+ONLY improve the current website.
+
+Every existing feature must continue working exactly as before.
+
+====================================================
+
+CURRENT WEBSITE
+
+The website already contains 14 tools.
+
+PDF Tools
+• Image to PDF
+• Merge PDF
+• Compress PDF
+• PDF to Word
+
+Image Tools
+• Image Compressor
+• JPG to PNG
+• PNG to JPG
+• Background Remover
+
+Calculators
+• Age Calculator
+• EMI Calculator
+• Percentage Calculator
+• GST Calculator
+
+Other Tools
+• QR Code Generator
+• Password Generator
+
+Keep every tool.
+
+Do not remove or rename them.
+
+====================================================
+
+OBJECTIVE
+
+Every tool page should look like a premium SaaS product instead of a simple tool page.
+
+Each page must educate users while also allowing them to use the tool immediately.
+
+The tool interface should remain near the top of the page.
+
+====================================================
+
+NEW PAGE STRUCTURE
+
+Every tool page must follow this order:
+
+1. Hero Section
+
+Display:
+
+Tool Name
+
+Short description (2–3 sentences)
+
+Primary CTA button
+
+Small trust badges:
+
+✓ Free
+
+✓ Secure
+
+✓ Browser Based
+
+✓ No Registration
+
+====================================================
+
+2. Tool Interface
+
+Keep the existing tool exactly as it is.
+
+Improve spacing.
+
+Improve responsiveness.
+
+Improve upload area.
+
+Improve typography.
+
+Improve empty states.
+
+Improve loading states.
+
+Improve success states.
+
+====================================================
+
+3. What Does This Tool Do?
+
+Create an original explanation.
+
+Minimum 200 words.
+
+Explain:
+
+What the tool is
+
+Who should use it
+
+Typical use cases
+
+Advantages
+
+Write naturally.
+
+Never use duplicated text across pages.
+
+====================================================
+
+4. Key Features
+
+Show feature cards.
+
+Examples:
+
+Fast Processing
+
+No Installation
+
+Secure Browser Processing
+
+Mobile Friendly
+
+Unlimited Usage (only if true)
+
+High Quality Output
+
+Responsive Design
+
+====================================================
+
+5. Why Use This Tool?
+
+Explain practical benefits.
+
+Examples:
+
+Save time
+
+Increase productivity
+
+Simple workflow
+
+Works anywhere
+
+No downloads required
+
+====================================================
+
+6. Step-by-Step Guide
+
+Show numbered steps.
+
+Example:
+
+1. Upload file
+
+2. Configure settings
+
+3. Process
+
+4. Download result
+
+Use icons where appropriate.
+
+====================================================
+
+7. Tips & Best Practices
+
+Provide useful advice specific to the tool.
+
+Examples:
+
+Best PDF size
+
+Recommended image formats
+
+Quality tips
+
+Compression advice
+
+File organization tips
+
+====================================================
+
+8. Frequently Asked Questions
+
+Create 6–10 original FAQs for every tool.
+
+Every FAQ must answer real user questions.
+
+Examples:
+
+Is this tool free?
+
+Are my files secure?
+
+Does it work on mobile?
+
+What browsers are supported?
+
+====================================================
+
+9. Related Tools
+
+Recommend 4–6 relevant tools.
+
+Example:
+
+Merge PDF
+
+→ Compress PDF
+
+→ Image to PDF
+
+→ PDF to Word
+
+→ JPG to PNG
+
+====================================================
+
+10. Final Call To Action
+
+Example:
+
+Need another tool?
+
+Explore all free online tools on QuickToolsHub.
+
+====================================================
+
+UI IMPROVEMENTS
+
+Improve spacing.
+
+Improve typography.
+
+Improve card design.
+
+Improve icon consistency.
+
+Improve button hierarchy.
+
+Improve section separators.
+
+Improve mobile responsiveness.
+
+Maintain the current color theme.
+
+====================================================
+
+CONTENT REQUIREMENTS
+
+Every tool page should contain approximately 700–1200 words of original, useful content.
+
+Never duplicate paragraphs between tools.
+
+Avoid keyword stuffing.
+
+Write naturally for real users.
+
+====================================================
+
+GOOGLE ADSENSE REQUIREMENTS
+
+Write content that demonstrates genuine usefulness.
+
+Prioritize user education over search engine manipulation.
+
+Avoid filler text.
+
+Avoid repeated content.
+
+Avoid automatically generated repetitive paragraphs.
+
+Ensure every section provides real value.
+
+====================================================
+
+QUALITY CHECK
+
+Before completing:
+
+✓ Verify every existing tool still works.
+
+✓ Verify responsive layout.
+
+✓ Verify no routes are broken.
+
+✓ Verify upload functionality still works.
+
+✓ Verify dark mode still works.
+
+✓ Verify light mode still works.
+
+Do not make any unrelated changes.
+
+Only complete the improvements described above.

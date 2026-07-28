@@ -44,6 +44,17 @@ const toolInfo = {
     { q: "Will compression affect the visual quality of my PDF?", a: "This tool uses lossless structural compression — it does not re-compress embedded images, so visual quality is preserved." },
     { q: "Can I compress multiple PDFs at once?", a: "Currently the tool processes one PDF at a time. Simply run it again for each file you need to compress." },
     { q: "Why is my compressed file the same size as the original?", a: "If your PDF was already well-optimized, there may be little room for further reduction. This is normal for PDFs exported from modern applications." },
+    { q: "Does this tool work on scanned PDFs?", a: "Yes, it works on scanned documents, but the size reduction will depend on how the scanning software initially encoded the file structure." },
+    { q: "Will I lose my bookmarks and hyperlinks?", a: "No, structural metadata like bookmarks, links, and forms are completely preserved during compression." },
+    { q: "Can I view the size difference before downloading?", a: "Yes, the tool shows you the exact before-and-after sizes in kilobytes or megabytes before you click download." },
+  ],
+  tips: [
+    "PDFs containing large images compress more effectively than text-only PDFs",
+    "If compression doesn't reduce size much, the PDF may already be optimized",
+    "For critical documents, compare the compressed version side-by-side before using it",
+    "Email portals typically accept PDFs under 10MB; target that as your size goal",
+    "Use compression before uploading to government portals that have 2–5MB limits",
+    "For scanned PDFs, image quality compression will be more effective",
   ],
 };
 

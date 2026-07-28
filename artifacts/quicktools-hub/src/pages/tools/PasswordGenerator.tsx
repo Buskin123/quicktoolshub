@@ -43,6 +43,16 @@ const toolInfo = {
     { q: "What characters are included in special symbols?", a: "Special symbols include: ! @ # $ % ^ & * ( ) _ + - = [ ] { } | ; : , . < > ?" },
     { q: "Is a longer password always stronger?", a: "Yes. Each additional character exponentially increases the number of possible combinations. We recommend at least 12 characters for important accounts." },
     { q: "Are the generated passwords saved anywhere?", a: "No. Passwords are generated in your browser and displayed on screen only. They are never transmitted to any server or stored in any database." },
+    { q: "Can I use the generated password for my bank account?", a: "Yes, these passwords are highly secure and perfect for sensitive accounts like banking and email, provided you store them safely (e.g. in a password manager)." },
+    { q: "Why do some passwords not have symbols even if selected?", a: "The generator picks completely random characters from the combined set. To guarantee a symbol, you can quickly regenerate until one appears." },
+  ],
+  tips: [
+    "Use at least 12 characters for standard accounts; 16+ for email and banking",
+    "Always include symbols for maximum entropy — even one symbol dramatically increases strength",
+    "Never use the same password for two accounts — use a password manager to store them",
+    "After generating, paste the password into your password manager immediately before forgetting it",
+    "For WiFi passwords, longer is better — 20+ character passwords are easy to store in a router",
+    "Test your generated password in your password manager before closing the generator tab",
   ],
 };
 

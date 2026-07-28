@@ -43,6 +43,16 @@ const toolInfo = {
     { q: "What quality setting is recommended?", a: "A quality setting of 80–90% typically gives excellent visual results with a significant file size reduction. For web thumbnails, 60–75% is usually sufficient." },
     { q: "How much smaller will the JPG be compared to the PNG?", a: "JPG files are typically 3–10 times smaller than equivalent PNGs, depending on image content and the quality setting you choose." },
     { q: "Can I convert back from JPG to PNG later?", a: "Yes, using our JPG to PNG tool. However, the original transparency and any detail lost during JPG compression cannot be fully recovered." },
+    { q: "Can I change the white background to another color?", a: "Currently, our tool defaults to a white background for transparent areas. If you need a specific color, add it in a design tool before converting." },
+    { q: "Are my photos uploaded to a server?", a: "No. The entire conversion from PNG to JPG happens inside your browser using the HTML5 Canvas API." },
+  ],
+  tips: [
+    "Use 85-90% quality for photos where the difference from 100% is invisible to the naked eye",
+    "For web thumbnails and social media covers, 70-80% quality is sufficient",
+    "Transparent areas in your PNG will become white in the JPG — plan accordingly",
+    "After conversion, verify the image looks correct before discarding the original PNG",
+    "JPG is best for photographs; use PNG to JPG mainly when file size is the priority",
+    "Many social platforms prefer JPG for profile and cover photos — this is the right tool for that",
   ],
 };
 

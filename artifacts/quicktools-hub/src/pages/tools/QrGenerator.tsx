@@ -44,6 +44,17 @@ const toolInfo = {
     { q: "Can I customise the QR code colours?", a: "Yes. You can set both the foreground (dark pattern) colour and the background colour using the colour pickers. Ensure sufficient contrast for reliable scanning." },
     { q: "What format is the downloaded QR code?", a: "The QR code is downloaded as a PNG image file, which is compatible with all graphic design software, document editors, and print-ready workflows." },
     { q: "Do QR codes generated here expire?", a: "No. QR codes are just encoded data — they don't expire. As long as the URL or content they link to remains valid, the QR code will continue to work." },
+    { q: "Why won't my smartphone scan the custom colored QR code?", a: "Most scanners require high contrast between the background (light) and the foreground (dark). Avoid using light foreground colors or dark backgrounds." },
+    { q: "Can I add a logo to the center of the QR code?", a: "Currently, our tool generates pure, highly scannable QR codes without center logos to ensure maximum compatibility." },
+    { q: "Is the QR code generated safely?", a: "Yes, the code is generated locally in your browser using JavaScript. We do not store or track the text you encode." },
+  ],
+  tips: [
+    "Always test your QR code by scanning it before printing or distributing",
+    "Use high-contrast colours (dark on light) for the best scan reliability",
+    "For print materials, use at least 256px size; for large format printing, use 512px",
+    "Add a short URL (use a URL shortener) instead of a long link for a less dense QR pattern",
+    "For business cards, a 200-250px size printed at 300dpi gives excellent results",
+    "Custom foreground colours work well — but avoid light colours on light backgrounds",
   ],
 };
 

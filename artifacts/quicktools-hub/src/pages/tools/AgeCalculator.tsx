@@ -43,6 +43,16 @@ const toolInfo = {
     { q: "Can I calculate age for a future date of birth?", a: "No. The calculator requires a date of birth in the past. Future dates are not accepted since age cannot be negative." },
     { q: "Is my date of birth saved anywhere?", a: "No. Your date of birth is used only to calculate the result in your browser and is never stored, transmitted, or logged." },
     { q: "Why does the total days count look so large?", a: "A 30-year-old has lived approximately 10,950 days. Total days is an accurate measure of your full lifespan expressed in the smallest time unit shown." },
+    { q: "How are leap years handled?", a: "The calculator checks the calendar properties of each year and month between your birth date and today, adding leap days automatically where applicable." },
+    { q: "Does the calculator use my local time zone?", a: "Yes, it uses your device's current date and time settings to ensure the age calculation is perfectly synchronized with your actual today." },
+  ],
+  tips: [
+    "Use your exact birth date for the most precise result, not an estimate",
+    "The calculator updates instantly — no need to click a button after entering your date",
+    "Use the 'total days lived' figure for trivia, milestone celebrations, or birthday posts",
+    "Check the next birthday countdown to plan surprise parties or gift orders in advance",
+    "For children's school admissions, use the exact age in years and months as required",
+    "The calculator accounts for leap years automatically — no manual adjustment needed",
   ],
 };
 
