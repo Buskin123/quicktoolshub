@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ChevronRight, Home, ChevronDown, ChevronUp, CheckCircle, Lightbulb, ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
@@ -6,6 +6,7 @@ import { Layout } from "@/components/layout/Layout";
 import { AdBanner } from "@/components/layout/AdBanner";
 import { ToolCard } from "./ToolCard";
 import { Tool, tools } from "@/data/tools";
+import { useRecentTools } from "@/hooks/useRecentTools";
 
 export interface ToolInfo {
   about: string[];
@@ -78,6 +79,12 @@ function InfoCard({ title, items }: { title: string; items: string[] }) {
 }
 
 export function ToolPageLayout({ tool, children, seoDescription, howToSteps, toolInfo }: ToolPageLayoutProps) {
+  const { addRecentTool } = useRecentTools();
+
+  useEffect(() => {
+    addRecentTool(tool.id);
+  }, [tool.id, addRecentTool]);
+
   let relatedTools = tools.filter((t) => t.category === tool.category && t.id !== tool.id).slice(0, 3);
   if (toolInfo?.relatedIds) {
     relatedTools = tools.filter(t => toolInfo.relatedIds?.includes(t.id));

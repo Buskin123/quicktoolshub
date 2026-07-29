@@ -1,11 +1,13 @@
 import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight, Shield, Zap, Lock, Globe, ChevronDown, ChevronUp, FileText, Image, Calculator } from "lucide-react";
+import { ArrowRight, Shield, Zap, Lock, Globe, ChevronDown, ChevronUp, FileText, Image, Calculator, Heart, QrCode } from "lucide-react";
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { ToolCard } from "@/components/tools/ToolCard";
 import { AdBanner } from "@/components/layout/AdBanner";
-import { tools } from "@/data/tools";
+import { tools, Tool } from "@/data/tools";
+import { useRecentTools } from "@/hooks/useRecentTools";
+import { useFavorites } from "@/hooks/useFavorites";
 
 const faqs = [
   { q: "Are these tools free to use?", a: "Yes, all tools are completely free to use. There are no hidden charges, no subscription plans, and no credit card required — ever." },
@@ -26,30 +28,39 @@ const features = [
 ];
 
 const categories = [
-  { icon: FileText, label: "PDF Tools", desc: "Convert, merge, and compress PDF files", count: 4, href: "/tools", color: "bg-red-50 text-red-600 border-red-100" },
-  { icon: Image, label: "Image Tools", desc: "Compress, convert, and edit images", count: 4, href: "/tools", color: "bg-blue-50 text-blue-600 border-blue-100" },
-  { icon: Calculator, label: "Calculators", desc: "EMI, GST, age, and percentage calculators", count: 4, href: "/tools", color: "bg-green-50 text-green-600 border-green-100" },
+  { icon: FileText, label: "PDF Tools", desc: "Convert, merge, and compress PDF files", count: 4, href: "/pdf-tools", color: "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-100 dark:border-red-900/50" },
+  { icon: Image, label: "Image Tools", desc: "Compress, convert, and edit images", count: 4, href: "/image-tools", color: "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-900/50" },
+  { icon: Calculator, label: "Calculators", desc: "EMI, GST, age, and percentage calculators", count: 4, href: "/calculators", color: "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 border-green-100 dark:border-green-900/50" },
+  { icon: QrCode, label: "Generators", desc: "QR codes and password generators", count: 2, href: "/generators", color: "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700" },
 ];
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden">
+    <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden transition-colors">
       <button
         data-testid={`faq-${q.slice(0, 20).replace(/\s/g, "-").toLowerCase()}`}
-        className="w-full flex items-center justify-between p-4 text-left bg-white hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between p-4 text-left bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
         onClick={() => setOpen(!open)}
       >
-        <span className="font-medium text-gray-800 pr-4">{q}</span>
+        <span className="font-medium text-gray-800 dark:text-gray-100 pr-4">{q}</span>
         {open ? <ChevronUp className="w-4 h-4 text-gray-500 flex-shrink-0" /> : <ChevronDown className="w-4 h-4 text-gray-500 flex-shrink-0" />}
       </button>
-      {open && <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">{a}</div>}
+      {open && <div className="px-4 pb-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-100 dark:border-gray-700 pt-3 bg-white dark:bg-gray-800">{a}</div>}
     </div>
   );
 }
 
 export default function Home() {
   const popularTools = tools.filter((t) => t.isPopular);
+  const { recentToolIds } = useRecentTools();
+  const { favorites } = useFavorites();
+  
+  const recentTools = recentToolIds
+    .map(id => tools.find(t => t.id === id))
+    .filter((t): t is Tool => t !== undefined);
+    
+  const favoriteTools = tools.filter(t => favorites.includes(t.id));
 
   return (
     <Layout>
@@ -116,11 +127,11 @@ export default function Home() {
       </div>
 
       {/* Popular Tools */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white dark:bg-gray-950 transition-colors">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Popular Tools</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">The tools people use most — fast, free, and ready to go</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Popular Tools</h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">The tools people use most — fast, free, and ready to go</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {popularTools.map((tool) => (
@@ -135,14 +146,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Recently Used Tools */}
+      {recentTools.length > 0 && (
+        <section className="py-12 px-4 bg-gray-50 dark:bg-gray-900 transition-colors">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Recently Used</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {recentTools.map((tool) => (
+                <ToolCard key={`recent-${tool.id}`} tool={tool} variant="compact" />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Favourite Tools */}
+      <section className={`py-12 px-4 ${recentTools.length > 0 ? 'bg-white dark:bg-gray-950' : 'bg-gray-50 dark:bg-gray-900'} transition-colors`}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+            <Heart className="w-6 h-6 text-red-500 fill-red-500" /> Your Favourites
+          </h2>
+          {favoriteTools.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {favoriteTools.map((tool) => (
+                <ToolCard key={`fav-${tool.id}`} tool={tool} />
+              ))}
+            </div>
+          ) : (
+            <div className="p-8 border-2 border-dashed border-gray-200 dark:border-gray-800 rounded-2xl text-center bg-gray-50 dark:bg-gray-800/50">
+              <p className="text-gray-500 dark:text-gray-400">No favourite tools yet. Click the heart icon on any tool to save it here.</p>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* Categories */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-gray-50 dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Tool Categories</h2>
-            <p className="text-gray-500">Everything organized, nothing buried</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Tool Categories</h2>
+            <p className="text-gray-500 dark:text-gray-400">Everything organized, nothing buried</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((cat) => (
               <Link
                 key={cat.label}
@@ -150,12 +195,12 @@ export default function Home() {
                 data-testid={`category-card-${cat.label.replace(/\s/g, "-").toLowerCase()}`}
                 className={`border-2 rounded-2xl p-8 flex flex-col items-center text-center hover:shadow-lg transition-all group ${cat.color}`}
               >
-                <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 rounded-2xl bg-white dark:bg-gray-950 flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                   <cat.icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800">{cat.label}</h3>
-                <p className="text-sm text-gray-500 mb-2">{cat.desc}</p>
-                <span className="text-xs font-semibold px-3 py-1 bg-white rounded-full mt-2">{cat.count} tools</span>
+                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">{cat.label}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{cat.desc}</p>
+                <span className="text-xs font-semibold px-3 py-1 bg-white dark:bg-gray-950 rounded-full mt-2">{cat.count} tools</span>
               </Link>
             ))}
           </div>
@@ -163,20 +208,20 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white dark:bg-gray-950 transition-colors">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Why Choose QuickToolsHub</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">Built for speed, privacy, and simplicity — exactly what online tools should be</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Why Choose QuickToolsHub</h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">Built for speed, privacy, and simplicity — exactly what online tools should be</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f) => (
-              <div key={f.title} className="flex flex-col items-center text-center p-6 rounded-2xl border border-gray-100 bg-gray-50">
+              <div key={f.title} className="flex flex-col items-center text-center p-6 rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
                   <f.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-bold text-gray-800 mb-2">{f.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+                <h3 className="font-bold text-gray-800 dark:text-gray-100 mb-2">{f.title}</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -233,11 +278,11 @@ export default function Home() {
       </div>
 
       {/* FAQ */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-white dark:bg-gray-950 transition-colors">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Frequently Asked Questions</h2>
-            <p className="text-gray-500">Everything you need to know about QuickToolsHub</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Frequently Asked Questions</h2>
+            <p className="text-gray-500 dark:text-gray-400">Everything you need to know about QuickToolsHub</p>
           </div>
           <div className="space-y-3">
             {faqs.map((faq) => (

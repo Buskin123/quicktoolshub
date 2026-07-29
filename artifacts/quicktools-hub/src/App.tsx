@@ -11,6 +11,10 @@ import Contact from "@/pages/Contact";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import Terms from "@/pages/Terms";
 import Disclaimer from "@/pages/Disclaimer";
+import PdfTools from "@/pages/PdfTools";
+import ImageTools from "@/pages/ImageTools";
+import Calculators from "@/pages/Calculators";
+import Generators from "@/pages/Generators";
 import ImageToPdf from "@/pages/tools/ImageToPdf";
 import MergePdf from "@/pages/tools/MergePdf";
 import CompressPdf from "@/pages/tools/CompressPdf";
@@ -33,6 +37,10 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/tools" component={Tools} />
+      <Route path="/pdf-tools" component={PdfTools} />
+      <Route path="/image-tools" component={ImageTools} />
+      <Route path="/calculators" component={Calculators} />
+      <Route path="/generators" component={Generators} />
       <Route path="/tools/image-to-pdf" component={ImageToPdf} />
       <Route path="/tools/merge-pdf" component={MergePdf} />
       <Route path="/tools/compress-pdf" component={CompressPdf} />

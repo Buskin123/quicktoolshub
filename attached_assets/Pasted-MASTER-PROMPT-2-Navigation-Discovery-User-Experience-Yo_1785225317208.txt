@@ -1,0 +1,239 @@
+MASTER PROMPT 2 – Navigation, Discovery & User Experience
+
+You are a Senior Full Stack Developer specializing in React, TypeScript, Vite, Tailwind CSS, UX/UI, Accessibility, and SEO.
+
+PROJECT:
+QuickToolsHub
+
+IMPORTANT RULES
+
+* DO NOT rebuild the project.
+* DO NOT change the existing technology stack.
+* DO NOT modify or break any existing tool functionality.
+* DO NOT remove or rename routes.
+* DO NOT redesign the website from scratch.
+* Preserve the current branding, colors, dark mode, and responsive design.
+* Only implement the improvements described below.
+
+==================================================
+
+MISSION
+
+Improve how users discover, navigate, and interact with the website while keeping the existing design language.
+
+==================================================
+
+1. GLOBAL TOOL SEARCH
+
+Create a global search component that allows users to instantly search every available tool.
+
+Requirements:
+
+* Search by tool name.
+* Search updates in real time while typing.
+* Display matching tools in a dropdown.
+* Clicking a result opens that tool immediately.
+* Mobile friendly.
+* Keyboard accessible.
+* Close results when clicking outside.
+
+==================================================
+
+2. TOOL CATEGORY PAGES
+
+Create dedicated pages for:
+
+/pdf-tools
+
+/image-tools
+
+/calculators
+
+/generators
+
+Each page should include:
+
+* Category title
+* Short introduction
+* Responsive grid of tools
+* Tool icon
+* Tool name
+* Short description
+* Button to open each tool
+* Internal links back to Home and related categories
+
+Do not duplicate tool functionality—these pages are navigation hubs only.
+
+==================================================
+
+3. BREADCRUMB NAVIGATION
+
+Add breadcrumbs to every tool page.
+
+Example:
+
+Home → PDF Tools → Merge PDF
+
+Requirements:
+
+* Automatically generated.
+* Responsive.
+* Accessible.
+* Improve internal navigation.
+
+==================================================
+
+4. RECENTLY USED TOOLS
+
+Store the last five visited tools using localStorage.
+
+Create a "Recently Used" section.
+
+Requirements:
+
+* Automatic updates.
+* Duplicate entries removed.
+* Most recent first.
+* Data remains after browser refresh.
+
+==================================================
+
+5. FAVORITE TOOLS
+
+Allow users to mark tools as favourites.
+
+Requirements:
+
+* Heart icon.
+* Store favourites in localStorage.
+* Create a "Favourite Tools" section.
+* Toggle on/off.
+* Persist after refresh.
+
+==================================================
+
+6. IMPROVED FOOTER
+
+Create a professional footer containing:
+
+Quick Links
+
+Tool Categories
+
+Popular Tools
+
+Resources
+
+Legal
+
+Copyright
+
+Current year automatically generated
+
+Social links placeholders (hidden or disabled until configured)
+
+==================================================
+
+7. EMPTY STATES
+
+Where appropriate, add informative empty states.
+
+Examples:
+
+"No favourite tools yet."
+
+"No recently used tools."
+
+"No search results found."
+
+Provide helpful guidance instead of blank screens.
+
+==================================================
+
+8. ACCESSIBILITY
+
+Improve accessibility throughout navigation.
+
+Requirements:
+
+* ARIA labels
+* Keyboard navigation
+* Visible focus indicators
+* Semantic HTML
+* Proper heading hierarchy
+* Accessible buttons and links
+
+==================================================
+
+9. MOBILE EXPERIENCE
+
+Improve mobile navigation.
+
+Requirements:
+
+* Better hamburger menu.
+* Smooth open/close animation.
+* Easier tap targets.
+* Better spacing.
+* Prevent menu overflow.
+
+==================================================
+
+10. MICRO INTERACTIONS
+
+Add subtle interactions only where appropriate.
+
+Examples:
+
+* Smooth hover animations
+* Active navigation states
+* Button transitions
+* Card hover effects
+* Search dropdown animation
+
+Keep animations lightweight and professional.
+
+==================================================
+
+11. PERFORMANCE
+
+Do not negatively impact performance.
+
+Requirements:
+
+* Lazy load non-critical UI where appropriate.
+* Avoid unnecessary re-renders.
+* Use reusable React components.
+* Keep JavaScript bundle efficient.
+
+==================================================
+
+12. QUALITY ASSURANCE
+
+Before completing:
+
+✓ All existing tools continue working.
+
+✓ Existing routes remain unchanged.
+
+✓ No console errors.
+
+✓ Search works correctly.
+
+✓ Category pages work.
+
+✓ Breadcrumbs display correctly.
+
+✓ Favourites persist after refresh.
+
+✓ Recently used tools persist after refresh.
+
+✓ Dark mode still works.
+
+✓ Mobile responsive.
+
+✓ No existing functionality has been removed.
+
+If any new feature conflicts with existing functionality, preserve the existing functionality and adjust the new feature accordingly.
+
+The final result should feel like a polished, professional utility website with significantly improved navigation and usability while maintaining the existing design and functionality.
